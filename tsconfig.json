@@ -3,6 +3,17 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "paths": {
+      "@app/*": ["src/app/*"],
+      "@pages/*":["src/app/pages/*"],
+      "@cart/*":["src/app/pages/cart/*"],
+      "@home/*": ["src/app/pages/home/*"],
+      "@pageNotFound/*": ["src/app/pages/page-not-found/*"],
+      "@products/*": ["src/app/pages/products/*"],
+      "@appShared/*": ["src/app/shared/*"],
+      "@assets/*": ["src/assets/*"],
+      "@env/*": ["src/environments/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,

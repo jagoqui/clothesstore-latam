@@ -36,8 +36,13 @@ specifiers:
   karma-jasmine: ~4.0.0
   karma-jasmine-html-reporter: ^1.5.0
   lint-staged: ^11.1.2
+  lottie-web: ^5.7.13
+  ngx-lottie: ^7.0.3
+  ngx-spinner: ^12.0.0
+  ngx-toastr: ^14.1.0
   prettier: ^2.3.2
   rxjs: ~6.6.0
+  sweetalert2: ^11.1.4
   tslib: ^2.2.0
   typescript: ~4.3.2
   zone.js: ~0.11.4
@@ -51,7 +56,12 @@ dependencies:
   '@angular/platform-browser': 12.1.5_e484ae13dc87c6c09683a80ada7d62e3
   '@angular/platform-browser-dynamic': 12.1.5_78eac561215971802d68ab8c9f465231
   '@angular/router': 12.1.5_1135d6cdbaede2853ed61d07cc14cec5
+  lottie-web: 5.7.13
+  ngx-lottie: 7.0.3_6908e1cda2d9233c004b0dae73f068e1
+  ngx-spinner: 12.0.0_d5a9495eed57767f4c956c3e9a13b78d
+  ngx-toastr: 14.1.0_1f977e9c370e43b60c5674a425bf788d
   rxjs: 6.6.7
+  sweetalert2: 11.1.4
   tslib: 2.3.1
   zone.js: 0.11.4
 
@@ -5921,6 +5931,10 @@ packages:
     engines: {node: '>= 0.6.0'}
     dev: true
 
+  /lottie-web/5.7.13:
+    resolution: {integrity: sha512-6iy93BGPkdk39b0jRgJ8Zosxi8QqcMP5XcDvg1f0XAvEkke6EMCl6BUO4Lu78dpgvfG2tzut4QJ+0vCrfbrldQ==}
+    dev: false
+
   /lru-cache/6.0.0:
     resolution: {integrity: sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA==}
     engines: {node: '>=10'}
@@ -6300,6 +6314,41 @@ packages:
   /neo-async/2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
+
+  /ngx-lottie/7.0.3_6908e1cda2d9233c004b0dae73f068e1:
+    resolution: {integrity: sha512-Lb2mGqS/Bf2xAPuvss1Aj4v8Z+zM2Jr1w+Kvm078U3J+zaBBPPdO/MalL7EZQMVrAQIPrlHv16wmta3ulzg21w==}
+    peerDependencies:
+      '@angular/core': '>=8.0.0'
+      lottie-web: '>=5.4.0'
+    dependencies:
+      '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+      lottie-web: 5.7.13
+      tslib: 2.3.1
+    dev: false
+
+  /ngx-spinner/12.0.0_d5a9495eed57767f4c956c3e9a13b78d:
+    resolution: {integrity: sha512-0BIaLQDBwNApdSWfKYnYA4hSpfgd2bZ9ptBTB+1tOYJHULg67TRqVYswR6H4tNqmGfA8KNivTYXcY7/6RkyjyA==}
+    peerDependencies:
+      '@angular/common': ^12.0.0
+      '@angular/core': ^12.0.0
+    dependencies:
+      '@angular/common': 12.1.5_@angular+core@12.1.5+rxjs@6.6.7
+      '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+      tslib: 2.3.1
+    dev: false
+
+  /ngx-toastr/14.1.0_1f977e9c370e43b60c5674a425bf788d:
+    resolution: {integrity: sha512-bDdgM7cJXGvJCEU+aggsZ58Fc4x87oH0mjsjGAPQHqJ4K6gYCWaB79i1RxVBPmoXmTGooNJeeCsSZYLoHIo2Bg==}
+    peerDependencies:
+      '@angular/common': '>=12.0.0-0'
+      '@angular/core': '>=12.0.0-0'
+      '@angular/platform-browser': '>=12.0.0-0'
+    dependencies:
+      '@angular/common': 12.1.5_@angular+core@12.1.5+rxjs@6.6.7
+      '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/platform-browser': 12.1.5_e484ae13dc87c6c09683a80ada7d62e3
+      tslib: 2.3.1
+    dev: false
 
   /nice-try/1.0.5:
     resolution: {integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==}
@@ -8803,6 +8852,10 @@ packages:
       csso: 4.2.0
       stable: 0.1.8
     dev: true
+
+  /sweetalert2/11.1.4:
+    resolution: {integrity: sha512-CTNLviF6w1wyh1ou2UY8RpZasV2RiXbO6489v+a1Swz4jrUyuFDDjMZ9tMMVFnxTMdiUGfYiJoFUniZbHSEnHw==}
+    dev: false
 
   /symbol-observable/4.0.0:
     resolution: {integrity: sha512-b19dMThMV4HVFynSAM1++gBHAbk2Tc/osgLIBZMKsyqh34jb2e8Os7T6ZW/Bt3pJFdBTd2JwAnAAEQV7rSNvcQ==}
