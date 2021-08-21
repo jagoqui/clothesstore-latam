@@ -1,1 +1,12 @@
-<p>search works!</p>
+<div class="search">
+  <input
+    type="text"
+    class="searchTerm"
+    placeholder="Buscar aquí producto"
+    [formControl]="search"
+    (keydown)="onChange($event.key)"
+  />
+  <button type="submit" class="searchButton">
+    <img src="assets/icons/Icon%20ionic-ios-search.svg" alt="" srcset="" />
+  </button>
+</div>

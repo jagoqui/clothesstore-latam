@@ -1,0 +1,30 @@
+
+.search {
+  display: flex;
+}
+
+.searchTerm {
+  height: 58px;
+  border:none;
+  font-family: 'Noto Rashi Hebrew', sans-serif;
+  background-color: #EEEEEE;
+}
+
+.searchTerm:focus {
+  color: #6B6B6B;
+}
+
+.searchButton {
+  background: url("~src/assets/icons/Icon%20ionic-ios-search.svg");
+  width: 72px;
+  height: 58px;
+  background: #DEDEDE;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+
+}

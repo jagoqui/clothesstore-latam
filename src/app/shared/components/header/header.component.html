@@ -1,1 +1,19 @@
-<p>header works!</p>
+<div fxLayout="column" fxLayoutAlign="center stretch" id="header_container">
+  <div fxLayout="row" fxLayoutAlign="space-between center" id="wrapper">
+    <object data="assets/icons/ClothesStore.svg" type="image/svg+xml"></object>
+    <div [fxLayoutGap]="'1vw'" fxLayout="row">
+      <app-search [buttonQuery]="query"></app-search>
+      <img alt="" src="assets/icons/icon-cart.svg" srcset="" />
+      <img alt="" src="assets/icons/icon-user.svg" srcset="" />
+      <button>Iniciar sesión</button>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center" id="filters-buttons">
+    <button (click)="onFilter('hombre')">Hombre</button>
+    <button (click)="onFilter('mujer')">Mujer</button>
+    <button (click)="onFilter('junior')">Junior</button>
+    <button (click)="onFilter('niños')">Niños</button>
+    <button (click)="onFilter('accesorios')">Accesorios</button>
+    <button (click)="onFilter('ofertas')">Ofertas</button>
+  </div>
+</div>

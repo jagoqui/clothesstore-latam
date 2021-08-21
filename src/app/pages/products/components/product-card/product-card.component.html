@@ -1,1 +1,37 @@
-<p>product-card works!</p>
+<article *ngIf="product" id="card">
+  <a id="card_link">
+    <figure>
+      <img [alt]="product.title" [src]="product.thumbnail" is="image" rel="preload" />
+    </figure>
+  </a>
+  <div class="card_details" fxLayout="column" fxLayoutAlign="start center">
+    <h3>{{ product.title }}</h3>
+    <ng-container *ngFor="let price of product.prices.prices.slice(0, 2); let i = index">
+      <div fxLayout="row" fxLayoutAlign="space-around start">
+        <ng-container *ngIf="i === 0; else regular_amount">
+          <strong id="amount">{{ price.amount | currency: 'COP':'symbol-narrow':'1.0-0' }}</strong>
+        </ng-container>
+        <ng-template #regular_amount>
+          <span id="regular_amount">{{ price.amount | currency: 'COP':'symbol-narrow':'1.0-0' }}</span>
+        </ng-template>
+        <ng-container *ngIf="price.type === 'promotion'">
+          <span id="percent">{{ percent(price?.regular_amount, price?.amount) * -1 | percent: '1.0-2' }}</span>
+        </ng-container>
+      </div>
+    </ng-container>
+    <div id="addToCart">
+      <figure>
+        <img
+          (click)="addToCart(product)"
+          alt="cart"
+          height="50"
+          is="image"
+          rel="preload"
+          src="/assets/icons/icon-cart.svg"
+          width="50"
+        />
+      </figure>
+      Agregar al carrito
+    </div>
+  </div>
+</article>

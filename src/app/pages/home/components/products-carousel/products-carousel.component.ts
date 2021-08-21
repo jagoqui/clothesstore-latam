@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { OwlOptions } from 'ngx-owl-carousel-o';
+import { Product } from '@appShared/models/Products/product.model';
 
 @Component({
   selector: 'app-products-carousel',
@@ -6,10 +8,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products-carousel.component.scss']
 })
 export class ProductsCarouselComponent implements OnInit {
-
-  constructor() { }
+  @Input() products: Product[] = [];
+  customOptions: OwlOptions = {
+    loop: true,
+    autoHeight: true,
+    margin: 5,
+    lazyLoad: true,
+    fluidSpeed: true,
+    mouseDrag: true,
+    touchDrag: true,
+    pullDrag: true,
+    dots: false,
+    navSpeed: 700,
+    navText: ['<', '>'],
+    autoplay: true,
+    autoplayHoverPause: true,
+    mergeFit: true,
+    autoWidth: true,
+    autoplayTimeout: 4000,
+    responsive: {
+      0: {
+        items: 1,
+        nav: false
+      },
+      480: {
+        items: 1
+      },
+      600: {
+        items: 3
+      },
+      1000: {
+        items: 4
+      }
+    },
+    nav: true
+  };
 
   ngOnInit(): void {
+    console.log(this.products);
   }
-
 }

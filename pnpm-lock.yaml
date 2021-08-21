@@ -8,11 +8,13 @@ specifiers:
   '@angular-eslint/schematics': 12.3.1
   '@angular-eslint/template-parser': 12.3.1
   '@angular/animations': ~12.1.1
+  '@angular/cdk': 12.2.2
   '@angular/cli': ~12.1.1
   '@angular/common': ~12.1.1
   '@angular/compiler': ~12.1.1
   '@angular/compiler-cli': ~12.1.1
   '@angular/core': ~12.1.1
+  '@angular/flex-layout': 12.0.0-beta.34
   '@angular/forms': ~12.1.1
   '@angular/platform-browser': ~12.1.1
   '@angular/platform-browser-dynamic': ~12.1.1
@@ -37,7 +39,9 @@ specifiers:
   karma-jasmine-html-reporter: ^1.5.0
   lint-staged: ^11.1.2
   lottie-web: ^5.7.13
+  ngx-infinite-scroll: ^10.0.1
   ngx-lottie: ^7.0.3
+  ngx-owl-carousel-o: ^6.0.0
   ngx-spinner: ^12.0.0
   ngx-toastr: ^14.1.0
   prettier: ^2.3.2
@@ -49,15 +53,19 @@ specifiers:
 
 dependencies:
   '@angular/animations': 12.1.5_@angular+core@12.1.5
+  '@angular/cdk': 12.2.2_fd902e851afb72a22ce8445b6105d123
   '@angular/common': 12.1.5_@angular+core@12.1.5+rxjs@6.6.7
   '@angular/compiler': 12.1.5
   '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+  '@angular/flex-layout': 12.0.0-beta.34_32effc5b6127a4f9cd1109a36056db74
   '@angular/forms': 12.1.5_1135d6cdbaede2853ed61d07cc14cec5
   '@angular/platform-browser': 12.1.5_e484ae13dc87c6c09683a80ada7d62e3
   '@angular/platform-browser-dynamic': 12.1.5_78eac561215971802d68ab8c9f465231
   '@angular/router': 12.1.5_1135d6cdbaede2853ed61d07cc14cec5
   lottie-web: 5.7.13
+  ngx-infinite-scroll: 10.0.1
   ngx-lottie: 7.0.3_6908e1cda2d9233c004b0dae73f068e1
+  ngx-owl-carousel-o: 6.0.0_fd902e851afb72a22ce8445b6105d123
   ngx-spinner: 12.0.0_d5a9495eed57767f4c956c3e9a13b78d
   ngx-toastr: 14.1.0_1f977e9c370e43b60c5674a425bf788d
   rxjs: 6.6.7
@@ -355,6 +363,21 @@ packages:
       tslib: 2.3.1
     dev: false
 
+  /@angular/cdk/12.2.2_fd902e851afb72a22ce8445b6105d123:
+    resolution: {integrity: sha512-aF8pfzJYfTeMpc+71nXcSaHOOjAdk+XEKTbTSmOO++OLoOevUoQU0ap0g+H3pfKyO5QCx28IZQxtQHV134QrqA==}
+    peerDependencies:
+      '@angular/common': ^12.0.0 || ^13.0.0-0
+      '@angular/core': ^12.0.0 || ^13.0.0-0
+      rxjs: ^6.5.3 || ^7.0.0
+    dependencies:
+      '@angular/common': 12.1.5_@angular+core@12.1.5+rxjs@6.6.7
+      '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+      rxjs: 6.6.7
+      tslib: 2.3.1
+    optionalDependencies:
+      parse5: 5.1.1
+    dev: false
+
   /@angular/cli/12.1.4:
     resolution: {integrity: sha512-LpyhyqWe3bFcuH3MrXeYoIPI1htjwG1b5ehETfq4qsMvNmuFON6QI+F7EWEpX7lItVQc2bES+ogasTZsZue/uw==}
     engines: {node: ^12.14.1 || >=14.0.0, npm: ^6.11.0 || ^7.5.6, yarn: '>= 1.13.0'}
@@ -441,6 +464,23 @@ packages:
       rxjs: 6.6.7
       tslib: 2.3.1
       zone.js: 0.11.4
+    dev: false
+
+  /@angular/flex-layout/12.0.0-beta.34_32effc5b6127a4f9cd1109a36056db74:
+    resolution: {integrity: sha512-nLwKovXpyG+/U3Lbmfwt+q4ARupxtbPmFTZD0Y8oItFAV6/Oh9l+QQsNQa2VhOHAOrVagyDwcEM+SePtB5EmrQ==}
+    peerDependencies:
+      '@angular/cdk': ^12.0.0
+      '@angular/common': '>=12.0.0'
+      '@angular/core': '>=12.0.0'
+      '@angular/platform-browser': '>=12.0.0'
+      rxjs: ^6.0.0
+    dependencies:
+      '@angular/cdk': 12.2.2_fd902e851afb72a22ce8445b6105d123
+      '@angular/common': 12.1.5_@angular+core@12.1.5+rxjs@6.6.7
+      '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+      '@angular/platform-browser': 12.1.5_e484ae13dc87c6c09683a80ada7d62e3
+      rxjs: 6.6.7
+      tslib: 2.3.1
     dev: false
 
   /@angular/forms/12.1.5_1135d6cdbaede2853ed61d07cc14cec5:
@@ -1862,6 +1902,11 @@ packages:
       tslib: 2.3.1
       yargs-parser: 20.0.0
     dev: true
+
+  /@scarf/scarf/1.1.1:
+    resolution: {integrity: sha512-VGbKDbk1RFIaSmdVb0cNjjWJoRWRI/Weo23AjRCC2nryO0iAS8pzsToJfPVPtVs74WHw4L1UTADNdIYRLkirZQ==}
+    requiresBuild: true
+    dev: false
 
   /@schematics/angular/12.1.4:
     resolution: {integrity: sha512-xGqgGI6GWk4EFdKis8FmSESxoLgjnLQbaRE1t1KZCkSKJzqkOj0R9wiDrtZfcrbPxIkLL+3fAk2ThwwPznT6yw==}
@@ -6315,6 +6360,14 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: true
 
+  /ngx-infinite-scroll/10.0.1:
+    resolution: {integrity: sha512-7is0eJZ9kJPsaHohRmMhJ/QFHAW9jp9twO5HcHRvFM/Yl/R8QCiokgjwmH0/CR3MuxUanxfHZMfO3PbYTwlBEg==}
+    requiresBuild: true
+    dependencies:
+      '@scarf/scarf': 1.1.1
+      opencollective-postinstall: 2.0.3
+    dev: false
+
   /ngx-lottie/7.0.3_6908e1cda2d9233c004b0dae73f068e1:
     resolution: {integrity: sha512-Lb2mGqS/Bf2xAPuvss1Aj4v8Z+zM2Jr1w+Kvm078U3J+zaBBPPdO/MalL7EZQMVrAQIPrlHv16wmta3ulzg21w==}
     peerDependencies:
@@ -6323,6 +6376,19 @@ packages:
     dependencies:
       '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
       lottie-web: 5.7.13
+      tslib: 2.3.1
+    dev: false
+
+  /ngx-owl-carousel-o/6.0.0_fd902e851afb72a22ce8445b6105d123:
+    resolution: {integrity: sha512-jD6YkQ5PLGA4quR210nfFTQYOLj8Q1FHKOSyw8ZRH2GD85ImnEuFLJ31OyfrZQjPsfV3yMsaWaj6qVFqfjJbzg==}
+    peerDependencies:
+      '@angular/common': ' ^12.0.0-rc.0 || ^12.0.0'
+      '@angular/core': ^12.0.0-rc.0 || ^12.0.0
+      rxjs: ^6.0.1
+    dependencies:
+      '@angular/common': 12.1.5_@angular+core@12.1.5+rxjs@6.6.7
+      '@angular/core': 12.1.5_rxjs@6.6.7+zone.js@0.11.4
+      rxjs: 6.6.7
       tslib: 2.3.1
     dev: false
 
@@ -6632,6 +6698,11 @@ packages:
       is-wsl: 2.2.0
     dev: true
 
+  /opencollective-postinstall/2.0.3:
+    resolution: {integrity: sha512-8AV/sCtuzUeTo8gQK5qDZzARrulB3egtLzFgteqB2tcT4Mw7B8Kt7JcDHmltjz6FOAHsvTevk70gZEbhM4ZS9Q==}
+    hasBin: true
+    dev: false
+
   /opn/5.5.0:
     resolution: {integrity: sha512-PqHpggC9bLV0VeWcdKhkpxY+3JTzetLSqTCWL/z/tFIbI6G8JCjondXklT1JinczLz2Xib62sSp0T/gKT4KksA==}
     engines: {node: '>=4'}
@@ -6834,6 +6905,11 @@ packages:
     dependencies:
       parse5: 6.0.1
     dev: true
+
+  /parse5/5.1.1:
+    resolution: {integrity: sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==}
+    dev: false
+    optional: true
 
   /parse5/6.0.1:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==}

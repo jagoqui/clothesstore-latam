@@ -69,7 +69,7 @@
             "argsIgnorePattern": "^_"
           }
         ],
-        //Sort imports
+        //SortModel imports
         "sort-imports": [
           "error",
           {

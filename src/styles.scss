@@ -1,11 +1,32 @@
-body {
-  height: 100%;
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+*,
+*:before,
+*:after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
 }
-:root{
-  --background: #fff;
-  --black:#000;
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+html{
+  font-family: Helvetica, Arial, sans-serif;
+  border: 1px lightgray solid;
+  font-size: 1em;
+  line-height: 1.5em;
+  scroll-behavior: smooth;
+  background-color: white;
+}
+
+
+section {
+  height: 100vh;
 }
