@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ProductSearchControlService } from '@appShared/services/product-search-control.service';
+import { CartService } from '@appShared/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +7,9 @@ import { ProductSearchControlService } from '@appShared/services/product-search-
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  constructor(private productSearchControlSvc: ProductSearchControlService) {}
   query = '';
+
+  constructor(public cartSvc: CartService) {}
 
   onFilter(query: string) {
     this.query = query;

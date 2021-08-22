@@ -44,7 +44,5 @@ export class ProductsCarouselComponent implements OnInit {
     nav: true
   };
 
-  ngOnInit(): void {
-    console.log(this.products);
-  }
+  ngOnInit(): void {}
 }

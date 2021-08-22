@@ -1,14 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { ParamsSearch } from '@appShared/models/shared/params-search.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductSearchControlService {
-  query = new BehaviorSubject<string>('');
-  query$ = this.query.asObservable();
+  itemPorPage: number = 50;
+  paramsSearch = new BehaviorSubject<ParamsSearch>({ q: '', limit: this.itemPorPage, offset: 0 });
+  paramsSearch$ = this.paramsSearch.asObservable();
 
-  set queryFilter(query: string) {
-    this.query.next(query);
+  set params(params: ParamsSearch) {
+    this.paramsSearch.next(params);
   }
 }

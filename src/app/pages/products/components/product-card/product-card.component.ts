@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from '@appShared/models/Products/product.model';
+import { CartService } from '@appShared/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -8,6 +9,9 @@ import { Product } from '@appShared/models/Products/product.model';
 })
 export class ProductCardComponent {
   @Input() product: Product | undefined;
+  @Input() onCardView: boolean = false;
+
+  constructor(private cartSvc: CartService) {}
 
   percent(regular_amount: number | undefined, amount: number | undefined) {
     if (regular_amount && amount) {
@@ -16,5 +20,7 @@ export class ProductCardComponent {
     return 0;
   }
 
-  addToCart(product: Product) {}
+  addToCart(product: Product) {
+    this.cartSvc.addToCart(product);
+  }
 }

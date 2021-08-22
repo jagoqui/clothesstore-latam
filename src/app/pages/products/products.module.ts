@@ -7,10 +7,11 @@ import { ProductsComponent } from '@products/products.component';
 import { ProductDetailsComponent } from '@products/components/product-details/product-details.component';
 import { SharedModule } from '@appShared/shared.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   declarations: [ProductsComponent, ProductCardComponent, ProductDetailsComponent, ProductsListComponent],
   exports: [ProductsListComponent, ProductCardComponent],
-  imports: [CommonModule, ProductsRoutingModule, InfiniteScrollModule, SharedModule]
+  imports: [CommonModule, ProductsRoutingModule, InfiniteScrollModule, SharedModule, ScrollingModule]
 })
 export class ProductsModule {}

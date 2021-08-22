@@ -12,6 +12,7 @@ export class AppComponent implements AfterViewInit {
   constructor(private spinner: NgxSpinnerService, public loaderSvc: LoaderService) {}
 
   ngAfterViewInit() {
+    this.loaderSvc.setLoading(false);
     this.spinner
       .show(undefined, {
         type: 'ball-triangle-path',

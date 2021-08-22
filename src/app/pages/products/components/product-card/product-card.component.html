@@ -1,4 +1,4 @@
-<article *ngIf="product" id="card">
+<article *ngIf="product" id="card; else emptyProducts">
   <a id="card_link">
     <figure>
       <img [alt]="product.title" [src]="product.thumbnail" is="image" rel="preload" />
@@ -35,3 +35,4 @@
     </div>
   </div>
 </article>
+<ng-template #emptyProducts>No se han buscado los productos</ng-template>

@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { ProductSearchControlService } from '@appShared/services/product-search-control.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -14,7 +15,7 @@ export class SearchComponent implements OnDestroy, OnChanges {
   search = new FormControl('');
   private destroy$ = new Subject<unknown>();
 
-  constructor(private productSearchControlSvc: ProductSearchControlService) {
+  constructor(private productSearchControlSvc: ProductSearchControlService, private router: Router) {
     this.onSearch();
   }
 
@@ -34,12 +35,19 @@ export class SearchComponent implements OnDestroy, OnChanges {
 
   onClear(): void {
     this.search.reset();
-    this.productSearchControlSvc.queryFilter = '';
+    this.productSearchControlSvc.params = {
+      q: ''
+    };
+    this.router.navigate(['home']).then();
   }
 
   ngOnDestroy(): void {
     this.destroy$.next({});
     this.destroy$.complete();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.search.patchValue(changes.buttonQuery.currentValue);
   }
 
   private onSearch(): void {
@@ -50,15 +58,16 @@ export class SearchComponent implements OnDestroy, OnChanges {
         distinctUntilChanged(),
         filter((search) => search !== '' && search?.length > 2),
         tap((search) => {
-          this.productSearchControlSvc.queryFilter = search;
+          this.productSearchControlSvc.params = {
+            q: search,
+            limit: this.productSearchControlSvc.itemPorPage,
+            offset: 0
+          };
+          this.router.navigate(['products']).then();
           return true;
         }),
         takeUntil(this.destroy$)
       )
       .subscribe();
-  }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.search.patchValue(changes.buttonQuery.currentValue);
   }
 }

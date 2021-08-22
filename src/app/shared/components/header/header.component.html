@@ -3,7 +3,10 @@
     <object data="assets/icons/ClothesStore.svg" type="image/svg+xml"></object>
     <div [fxLayoutGap]="'1vw'" fxLayout="row">
       <app-search [buttonQuery]="query"></app-search>
-      <img alt="" src="assets/icons/icon-cart.svg" srcset="" />
+      <a routerLink="/cart" routerLinkActive="active-list-item">
+        <img alt="" src="assets/icons/icon-cart.svg" srcset="" />
+      </a>
+      {{ cartSvc.numberOfItems }}
       <img alt="" src="assets/icons/icon-user.svg" srcset="" />
       <button>Iniciar sesión</button>
     </div>
