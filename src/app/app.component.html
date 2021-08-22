@@ -1,4 +1,6 @@
-<ngx-spinner *ngIf="loaderSvc.isLoading$ | async"></ngx-spinner>
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div id="wrapper">
+  <ngx-spinner *ngIf="loaderSvc.isLoading$ | async"></ngx-spinner>
+  <app-header></app-header>
+  <div id="content"><router-outlet></router-outlet></div>
+</div>
 <app-footer></app-footer>

@@ -1,5 +1,8 @@
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import url('https://fonts.cdnfonts.com/css/roboto');
+@import url('https://fonts.cdnfonts.com/css/helvetica-neue-9');
+@import url('https://fonts.cdnfonts.com/css/bebas');
 
 *,
 *:before,
@@ -7,8 +10,33 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: calc(9px + 0.5vw);
 }
-
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: default;
+  font: inherit;
+  line-height: normal;
+  overflow: visible;
+  padding: 0;
+  -webkit-user-select: none; /* for button */
+  -webkit-appearance: button; /* for input */
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.11);
+}
+button:active {
+  outline: none;
+  border: none;
+}
 ul {
   list-style: none;
 }
@@ -16,16 +44,25 @@ ul {
 a {
   text-decoration: none;
 }
+html, body {
+  height: 100%;
+}
 
-html{
-  font-family: Helvetica, Arial, sans-serif;
-  border: 1px lightgray solid;
-  font-size: 1em;
-  line-height: 1.5em;
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  clear:both;
+}
+
+html {
+  font-family: "Helvetica Neue", sans-serif;
   scroll-behavior: smooth;
   background-color: white;
 }
 
+h1, h2, h3 {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
+}
 
 section {
   height: 100vh;
