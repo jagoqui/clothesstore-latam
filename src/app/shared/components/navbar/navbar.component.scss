@@ -1,0 +1,83 @@
+$nav-background:black;
+
+nav label, #hamburger {
+  display: none;
+}
+
+nav {
+  width: 100%;
+  background: $nav-background;
+  #filters {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    padding: 1vw 0;
+
+    a {
+      font-size: 150%;
+      font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
+      color: white;
+      padding: 0.5vw 2vw;
+      text-decoration: none;
+      text-align: center;
+      border-right: 1px solid white;
+
+      &:nth-last-child(1){
+        border-right: none;
+      }
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 480px) {
+  nav {
+    label {
+      display: inline-block;
+      background: transparent;
+      font-style: normal;
+      font-size: 3em;
+      padding: 10px;
+    }
+
+    input:checked ~ #filters {
+      display: block;
+      background: white;
+      //TODO: Colocar el hight del nav al 100% y volverlo blanco y ajusta el ancho al 80%
+
+      a {
+        color: black;
+      }
+    }
+
+    input:checked ~ label {
+      font-size: 0;
+      width: 100%;
+      text-align: end;
+
+      &:before {
+        content: "X";
+        //color: #5B17AA;
+        font-size: 30px;
+        font-weight: 700;
+      }
+    }
+
+    #filters {
+      display: none;
+
+      a {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 10px 20px;
+      }
+    }
+  }
+}

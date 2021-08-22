@@ -7,14 +7,16 @@ import { SearchComponent } from '@appShared/components/search/search.component';
 import { FooterComponent } from '@appShared/components/footer/footer.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 export const playerFactory = () => import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
 
-const imports = [CommonModule, RouterModule, FlexLayoutModule, LottieModule.forRoot({ player: playerFactory })];
+const componentsExport = [HeaderComponent, FooterComponent];
+const modulesExport = [CommonModule, RouterModule, FlexLayoutModule, LottieModule.forRoot({ player: playerFactory })];
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, SearchComponent],
-  imports: [imports, ReactiveFormsModule],
-  exports: [imports, HeaderComponent, FooterComponent]
+  declarations: [componentsExport, SearchComponent, NavbarComponent],
+  imports: [modulesExport, ReactiveFormsModule],
+  exports: [modulesExport, componentsExport]
 })
 export class SharedModule {}

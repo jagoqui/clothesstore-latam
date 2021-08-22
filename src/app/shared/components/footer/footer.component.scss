@@ -3,7 +3,7 @@ footer {
   color: #ffffff;
   padding: 1vw 3vw;
   position: relative;
-  clear:both;
+  clear: both;
 
   #sections {
     display: flex;
@@ -11,23 +11,23 @@ footer {
     flex-direction: row;
     padding: 1vw;
 
+    .section label, .section input, div:nth-last-of-type(2){
+      display: none;
+    }
+
     .section {
-      font-family: HelveticaNeu, serif;
       padding: 1vw;
 
-      .title{
+      .title {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
-        button{
-          display:none;
-        }
       }
 
-      p {
+      .section-details p {
         font-family: "HelveticaNeue-Light", "Helvetica Neue", serif;
         font-weight: lighter;
-        font-size: 85%;
+        font-size: 80%;
       }
 
       #container-img-links {
@@ -38,14 +38,13 @@ footer {
           background-color: white;
           width: $size;
           height: $size;
-          border-radius: $size/2;
-          border-radius: 50% 50%;
+          border-radius: $size*0.5;
         }
 
       }
     }
 
-    #payment-methods{
+    #payment-methods {
       display: none;
     }
   }
@@ -65,33 +64,60 @@ footer {
 
 @media (max-width: 480px) {
   footer {
-    padding: 3vw ;
+    padding: 3vw;
 
     #sections {
       flex-direction: column;
       padding-bottom: 0;
 
+      div:nth-last-of-type(2){
+        display: initial;
+      }
+
       .section {
         margin: 20px 0;
+
         .line div {
           border-bottom: solid 1px white;
           width: 100%;
           height: 0;
         }
-        .title{
-          button{
-            display:initial;
-            strong{
-              font-size:50px;
-              font-size:50px;
+
+        .title {
+          label{
+            display: initial;
+            background: transparent;
+            font-style: normal;
+            font-size: 3em;
+            padding: 10px;
+          }
+
+          input:checked ~ label {
+            font-size: 0;
+            width: 100%;
+            text-align: end;
+
+            &:before {
+              content: "-";
+              //color: #5B17AA;
+              font-size: 30px;
+              font-weight: 700;
             }
           }
+
+          input:checked ~ .section-details{
+            //TODO: No está funcionando
+            display: initial;
+            color: white;
+            border: 1px solid red;
+          }
+
         }
 
-        p {
-          font-size: 95%;
+        .section-details{
           display: none;
         }
+
         #container-img-links {
           margin-top: 20px;
           $size: 8vw;
@@ -99,14 +125,11 @@ footer {
           img {
             width: $size;
             height: $size;
-            border-radius: $size/2;
+            border-radius: $size * 0.5;
           }
         }
       }
 
-      #payment-methods{
-        display:initial;
-      }
     }
 
     #copyright {

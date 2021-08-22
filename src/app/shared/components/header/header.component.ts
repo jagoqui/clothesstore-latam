@@ -7,11 +7,7 @@ import { CartService } from '@appShared/services/cart.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  query = '';
+  query: string = '';
 
   constructor(public cartSvc: CartService) {}
-
-  onFilter(query: string) {
-    this.query = query;
-  }
 }

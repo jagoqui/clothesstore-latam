@@ -12,6 +12,27 @@
   box-sizing: border-box;
   font-size: calc(9px + 0.5vw);
 }
+
+html, body {
+  height: 100%;
+}
+
+#wrapper {
+  min-height: 100%;
+  position: relative;
+  clear: both;
+}
+
+html {
+  font-family: "Helvetica Neue", sans-serif;
+  scroll-behavior: smooth;
+  background-color: white;
+}
+
+h1, h2, h3, a, li {
+  font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
+}
+
 input[type="submit"],
 input[type="reset"],
 input[type="button"],
@@ -28,40 +49,25 @@ button {
   -webkit-appearance: button; /* for input */
   -moz-user-select: none;
   -ms-user-select: none;
+
+  &:hover, li:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.11);
+  }
+
+  &:active {
+    outline: none;
+    border: none;
+  }
 }
-button:hover {
-  cursor: pointer;
-  background-color: rgba(255, 255, 255, 0.11);
-}
-button:active {
-  outline: none;
-  border: none;
-}
+
 ul {
   list-style: none;
 }
 
-a {
+a, li, label {
   text-decoration: none;
-}
-html, body {
-  height: 100%;
-}
-
-#wrapper {
-  min-height: 100%;
-  position: relative;
-  clear:both;
-}
-
-html {
-  font-family: "Helvetica Neue", sans-serif;
-  scroll-behavior: smooth;
-  background-color: white;
-}
-
-h1, h2, h3 {
-  font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
+  color: white;
 }
 
 section {
