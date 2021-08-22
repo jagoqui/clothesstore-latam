@@ -1,4 +1,4 @@
-import { AfterViewInit, Component } from '@angular/core';
+import { AfterContentChecked, ChangeDetectorRef, Component } from '@angular/core';
 import { LoaderService } from '@appShared/services/loader.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -7,12 +7,18 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterViewInit {
+export class AppComponent implements AfterContentChecked {
   title = 'clothesstore-latam';
-  constructor(private spinner: NgxSpinnerService, public loaderSvc: LoaderService) {}
 
-  ngAfterViewInit() {
+  constructor(
+    private spinner: NgxSpinnerService,
+    public loaderSvc: LoaderService,
+    private changeDetRef: ChangeDetectorRef
+  ) {}
+
+  ngAfterContentChecked() {
     this.loaderSvc.setLoading(false);
+    this.changeDetRef.detectChanges();
     this.spinner
       .show(undefined, {
         type: 'ball-triangle-path',
