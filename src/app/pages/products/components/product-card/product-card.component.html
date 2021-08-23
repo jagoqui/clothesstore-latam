@@ -1,38 +1,19 @@
-<article *ngIf="product" id="card; else emptyProducts">
-  <a id="card_link">
-    <figure>
-      <img [alt]="product.title" [src]="product.thumbnail" is="image" rel="preload" />
-    </figure>
-  </a>
-  <div class="card_details" fxLayout="column" fxLayoutAlign="start center">
-    <h3>{{ product.title }}</h3>
-    <ng-container *ngFor="let price of product.prices.prices.slice(0, 2); let i = index">
-      <div fxLayout="row" fxLayoutAlign="space-around start">
-        <ng-container *ngIf="i === 0; else regular_amount">
-          <strong id="amount">{{ price.amount | currency: 'COP':'symbol-narrow':'1.0-0' }}</strong>
-        </ng-container>
-        <ng-template #regular_amount>
-          <span id="regular_amount">{{ price.amount | currency: 'COP':'symbol-narrow':'1.0-0' }}</span>
-        </ng-template>
-        <ng-container *ngIf="price.type === 'promotion'">
-          <span id="percent">{{ percent(price?.regular_amount, price?.amount) * -1 | percent: '1.0-2' }}</span>
-        </ng-container>
-      </div>
-    </ng-container>
-    <div id="addToCart">
-      <figure>
-        <img
-          (click)="addToCart(product)"
-          alt="cart"
-          height="50"
-          is="image"
-          rel="preload"
-          src="/assets/icons/icon-cart.svg"
-          width="50"
-        />
-      </figure>
-      Agregar al carrito
+<div id="card" *ngIf="product">
+  <span id="discount" *ngIf="pricePromotion">-{{ discount | percent }}</span>
+  <span id="golden-listing" *ngIf="product.listing_type_id === 'gold_pro'">🌟</span>
+  <div id="product-card-container">
+    <img [alt]="product.title" [src]="product.thumbnail" is="image" rel="preload" />
+  </div>
+  <div id="card-details">
+    <h2>{{ product.title }}</h2>
+    <div id="prices">
+      <p id="price-promotion" *ngIf="pricePromotion">{{ pricePromotion | currency: 'COP':'symbol-narrow':'1.0-0' }}</p>
+      <p [ngClass]="pricePromotion ? 'price-regular' : 'price-amount'">
+        {{ product.price | currency: 'COP':'symbol-narrow':'1.0-0' }}
+      </p>
     </div>
   </div>
-</article>
-<ng-template #emptyProducts>No se han buscado los productos</ng-template>
+  <div id="add-to-cart">
+    <button (click)="addToCart(product)">Add to Cart</button>
+  </div>
+</div>

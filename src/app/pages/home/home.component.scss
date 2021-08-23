@@ -1,6 +1,37 @@
-#homeContainer{
+#home-container{
   article{
-    margin: 3vw;
+    padding: 5vw;
+    #highlighted-categories{
+      display: flex;
+      align-items:center;
+      justify-content: space-between;
+      div {
+        img{
+          width: 95%;
+        }
+      }
+    }
+    h1{
+      margin: 5vw 0;
+      text-align: center;
+      font-size: 220%;
+    }
   }
 }
-
+@media (max-width: 480px) {
+  #home-container{
+    article{
+      #highlighted-categories{
+        flex-wrap: wrap;
+        justify-content:center;
+        align-items: center;
+        div {
+          margin-bottom: 1vw;
+          img{
+            width: 95%;
+          }
+        }
+      }
+    }
+  }
+}

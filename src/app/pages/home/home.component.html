@@ -1,9 +1,13 @@
-<div id="homeContainer">
+<div id="home-container">
   <app-images-carousel></app-images-carousel>
   <article>
-    <div id="highlighted categories" fxLayout="row" fxLayoutAlign="space-around center">
-      <img src="assets/images/categorias-destacadas-moda-infantil.png" alt="" srcset="" />
-      <img src="assets/images/categorias-destacadas-proteccion.png" alt="" srcset="" />
+    <div id="highlighted-categories">
+      <div>
+        <img alt="" src="assets/images/categorias-destacadas-moda-infantil.png" srcset="" />
+      </div>
+      <div>
+        <img alt="" src="assets/images/categorias-destacadas-proteccion.png" srcset="" />
+      </div>
     </div>
     <h1>PRODUCTOS MÁS BUSCADOS</h1>
     <app-products-carousel [products]="productsMostWanted"></app-products-carousel>

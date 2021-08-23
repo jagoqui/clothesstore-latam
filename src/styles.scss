@@ -4,6 +4,28 @@
 @import url('https://fonts.cdnfonts.com/css/helvetica-neue-9');
 @import url('https://fonts.cdnfonts.com/css/bebas');
 
+
+//Global variables
+:root {
+  --background: #fff;
+  --ligther: #F4F4F4;
+
+  --background-dark: #000;
+  --darker: #000000B8;
+  --darker-1: #00000015;
+
+  --gray-1: #606060;
+  --gray-2: #494D54;
+  --gray-3: #EEEEEE;
+  --gray-4: #E6E6E6;
+  --gray-5: #DEDEDE;
+
+  --primary: #5B17AA;
+  --accent: #6B6B6B;
+
+  $break-point-mob: 480px;
+}
+
 *,
 *:before,
 *:after {
@@ -15,6 +37,13 @@
 
 html, body {
   height: 100%;
+  font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+}
+
+html,
+html a {
+  -webkit-font-smoothing: antialiased;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
 #wrapper {
@@ -24,13 +53,13 @@ html, body {
 }
 
 html {
-  font-family: "Helvetica Neue", sans-serif;
   scroll-behavior: smooth;
-  background-color: white;
+  background-color: var(--background);
 }
 
 h1, h2, h3, a, li {
   font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
+  font-weight: bolder;
 }
 
 input[type="submit"],
@@ -39,7 +68,7 @@ input[type="button"],
 button {
   background: none;
   border: none;
-  color: white;
+  color: var(--background);
   cursor: default;
   font: inherit;
   line-height: normal;
@@ -52,12 +81,31 @@ button {
 
   &:hover, li:hover {
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.11);
+    background-color: var(--accent)
+  }
+
+  &:focus {
+    border-color: transparent !important;
+    box-shadow: none !important;
   }
 
   &:active {
     outline: none;
     border: none;
+  }
+
+  &:hover, &:focus {
+    opacity: 0.7;
+  }
+
+}
+
+input {
+  border: none !important;
+
+  &:focus {
+    border-color: transparent transparent !important;
+    box-shadow: none !important;
   }
 }
 
@@ -67,7 +115,7 @@ ul {
 
 a, li, label {
   text-decoration: none;
-  color: white;
+  color: var(--background);
 }
 
 section {

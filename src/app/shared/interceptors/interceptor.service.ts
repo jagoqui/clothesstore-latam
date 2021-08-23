@@ -1,18 +1,13 @@
-import {HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {tap} from 'rxjs/operators';
+import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import SwAlert from 'sweetalert2';
-import {LoaderService} from "../services/loader.service";
+import { LoaderService } from '../services/loader.service';
 
-
-@Injectable({providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class InterceptorService implements HttpInterceptor {
-
-  constructor(
-    private loaderSvc: LoaderService,
-  ) {
-  }
+  constructor(private loaderSvc: LoaderService) {}
 
   private static getServerErrorMessage(error: HttpErrorResponse): string {
     switch (error.status) {
@@ -39,9 +34,8 @@ export class InterceptorService implements HttpInterceptor {
     const requestClone: HttpRequest<any> = req.clone();
     return next.handle(requestClone).pipe(
       tap(
-        () => {
-        },
-        err => {
+        () => {},
+        (err) => {
           SwAlert.fire({
             icon: 'error',
             title: ` Algo salió mal en la petición.`,
@@ -50,7 +44,7 @@ export class InterceptorService implements HttpInterceptor {
                     Error ${err.status}! <b> ${InterceptorService.getServerErrorMessage(err)}</b>
                 </span>
                 `
-          }).then(_ => {
+          }).then((_) => {
             this.loaderSvc.setLoading(false);
           });
         },

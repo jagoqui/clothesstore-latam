@@ -1,15 +1,21 @@
-<div fxLayout="column" fxLayoutAlign="center stretch" id="header_container">
-  <div fxLayout="row" fxLayoutAlign="space-between center" id="wrapper">
-    <object data="assets/icons/ClothesStore.svg" type="image/svg+xml"></object>
-    <div [fxLayoutGap]="'1vw'" fxLayout="row">
-      <app-search [buttonQuery]="query"></app-search>
-      <a routerLink="/cart" routerLinkActive="active-list-item">
-        <img alt="" src="assets/icons/icon-cart.svg" srcset="" />
-      </a>
-      {{ cartSvc.numberOfItems }}
-      <img alt="" src="assets/icons/icon-user.svg" srcset="" />
-      <button>Iniciar sesión</button>
+<div id="header-container">
+  <header>
+    <a id="logo" (click)="query = ''" routerLink="/" title="Ir al home">
+      <img alt="ClothesstoreLatam logo" src="assets/icons/logo.svg" />
+    </a>
+    <div id="actions">
+      <div id="search-container">
+        <app-search [buttonQuery]="query"></app-search>
+      </div>
+      <div id="cart">
+        <a routerLink="/cart" id="cart-icon"><img alt="Cart icon" src="assets/icons/icon-cart.svg" /></a>
+        <div class="wrapper-badge">
+          <span class="badge">{{ cartSvc.totalItems < 10 ? cartSvc.totalItems : '9+' }}</span>
+        </div>
+      </div>
+      <a routerLink="/" id="user-icon"><img alt="user-icon" src="assets/icons/icon-user.svg" /></a>
+      <button id="login">Iniciar sesión</button>
     </div>
-  </div>
+  </header>
   <app-navbar (query)="query = $event.valueOf()"></app-navbar>
 </div>

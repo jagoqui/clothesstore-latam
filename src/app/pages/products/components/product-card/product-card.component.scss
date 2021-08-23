@@ -1,74 +1,96 @@
 #card {
-  border: 1px lightgray solid;
-  height: 20rem;
-  width: 18rem;
+  border: 1px var(--gray-4) solid;
   transition: all 0.6s;
+  width: 250px;
+  min-height: 400px;
   padding:0;
 
-  #card_link {
-    padding:0;
-    figure {
-      padding:0;
-      cursor: pointer;
-
-      img {
-        max-width: 100%;
-        opacity: 0.5;
-        transition: opacity 0.5s;
-        width: 100%;
-        object-fit: contain;
-
-        &:hover {
-          opacity: 1;
-          border: 0.278rem solid #fff;
-        }
-      }
-    }
+  #discount{
+    padding: 0.5vw;
+    background-color:var(--primary);
+    color:var(--background);
   }
 
-  #card_details {
-    background-color: #F4F4F4;
+  #golden-listing{
+    float:right;
+  }
 
-    #amount {
-      color: #5B17AA;
+  #product-card-container{
+    width: 100%;
+    min-height: 250%;
+    overflow-x: auto;
+    overflow-y: auto;
+    opacity: 0.75;
+    img {
+      width:100%;
+      display: block;
+      object-fit: cover;
+      object-position: center center;
+    }
+    &:hover{
+      opacity: 1;
+    }
+  }
+  #card-details {
+    background-color: var(--ligther);
+    padding: 30px;
+    text-justify: inter-word;
+    word-wrap: break-word;
+
+    h2{
+      text-align: left;
+      font-weight: lighter;
+    }
+    #prices{
+      margin:20px 0;
+      display: flex;
+      justify-content: space-between;
+      *{
+        font-size: 120%;
+      }
+
+      #price-promotion {
+        color: var(--primary);
+        font-weight: bolder;
+      }
+      .price-regular {
+        color: var(--accent);
+        font-weight: lighter;
+        text-decoration-line: line-through;
+      }
+      .price-amount{
+        color: var(--background-dark);
+        font-weight: bolder;
+      }
     }
 
-    #regular_amount {
-      color: #6B6B6B;
-      text-decoration: line-through;
-    }
+  }
 
-    #percent {
+  button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+
+    &:hover {
+      opacity: 0.7;
+    }
+    img{
       color: white;
-      font-weight: bold;
-      background-color: #5B17AA;
-    }
-
-    #addToCart {
-      color: white;
-      text-align: center;
-      background-color: black;
     }
   }
 
 }
 
-@media screen and (max-width: 27.778rem) {
-  .container {
+@media screen and (max-width: 480px) {
+  #card {
     width: 100%;
-  }
-
-  /* Card */
-  .character__list {
-    justify-content: flex-start;
-    flex-direction: column;
-  }
-
-  .card {
-    border: 0.278rem solid rgba(255, 255, 255, 0.90);
-    max-width: 100%;
-
-    img {
+    #product-card-container{
       opacity: 1;
     }
   }

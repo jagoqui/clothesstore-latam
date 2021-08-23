@@ -1,35 +1,26 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CartService } from '@appShared/services/cart.service';
 import { ItemCart } from '@appShared/models/shared/cart.model';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 import SwAlert from 'sweetalert2';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CartComponent implements OnInit, OnDestroy {
-  items: ItemCart[] = [];
-  private destroy$ = new Subject<unknown>();
+export class CartComponent {
+  cart$: Observable<ItemCart[]> = this.cartSvc.cart;
+
   constructor(public cartSvc: CartService) {}
 
-  ngOnInit() {
-    this.cartSvc.itemsCart$.pipe(takeUntil(this.destroy$)).subscribe(
-      (items: ItemCart[]) => {
-        this.items = items;
-      },
-      () => {},
-      () => {
-        console.log('termina');
-      }
-    );
+  deleteItem(productId: string) {
+    return this.cartSvc.removeItem(productId);
   }
 
-  ngOnDestroy(): void {
-    this.destroy$.next({});
-    this.destroy$.complete();
+  updateItem(qty: number, productId: string) {
+    this.cartSvc.updateItem(qty, productId);
   }
 
   onClear() {

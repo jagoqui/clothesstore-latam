@@ -11,7 +11,7 @@ import { ProductsDataSource } from '@appShared/datasource/data-source.datasource
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnDestroy {
-  @Input() products: Product[] | undefined;
+  @Input() products: (Product | undefined)[] | undefined;
   @Input() productsDataSource: ProductsDataSource[] | undefined;
   showButtonScrollingUp = false;
 

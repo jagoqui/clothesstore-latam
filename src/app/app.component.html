@@ -1,6 +1,8 @@
-<div id="wrapper">
+<div id="app-container">
   <ngx-spinner *ngIf="loaderSvc.isLoading$ | async"></ngx-spinner>
   <app-header></app-header>
   <div id="content"><router-outlet></router-outlet></div>
+  <div style="margin-top: auto">
+    <app-footer></app-footer>
+  </div>
 </div>
-<app-footer></app-footer>

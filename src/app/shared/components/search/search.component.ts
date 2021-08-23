@@ -36,7 +36,9 @@ export class SearchComponent implements OnDestroy, OnChanges {
   onClear(): void {
     this.search.reset();
     this.productSearchControlSvc.params = {
-      q: ''
+      q: '',
+      limit: 0,
+      offset: 0
     };
     this.router.navigate(['home']).then();
   }

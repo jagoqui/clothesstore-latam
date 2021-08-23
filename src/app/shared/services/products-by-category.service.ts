@@ -11,11 +11,22 @@ import { ParamsSearch } from '@appShared/models/shared/params-search.model';
 export class ProductsByCategoryService {
   constructor(private http: HttpClient) {}
 
-  searchItemsInCategory(paramsSearch: ParamsSearch): Observable<ItemsByCategory> {
-    const { q, limit, offset } = paramsSearch;
-    const params = new HttpParams({
-      fromObject: { q, limit: limit as unknown as string, offset: offset as unknown as string }
-    });
+  searchItemsInCategory(paramsSearch?: ParamsSearch): Observable<ItemsByCategory> {
+    let params: HttpParams | undefined;
+
+    if (paramsSearch) {
+      const { q, limit, offset } = paramsSearch;
+      params = new HttpParams(
+        q
+          ? {
+              fromObject: { q, limit: limit as unknown as string, offset: offset as unknown as string }
+            }
+          : {
+              fromObject: { limit: limit as unknown as string, offset: offset as unknown as string }
+            }
+      );
+    }
+
     return this.http.get<ItemsByCategory>(`${environment.baseUrlCO}/search?category=${environment.categoryId}`, {
       params
     });

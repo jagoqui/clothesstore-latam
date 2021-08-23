@@ -1,30 +1,31 @@
-
-.search {
+#search-wrapper {
   display: flex;
+
+  .input-search {
+    background: var(--gray-3) 0 0 no-repeat padding-box !important;
+    color: var(--accent);
+    font-stretch: expanded;
+    font-size: 150%;
+    padding: .5vw;
+    width: 100%;
+  }
+
+  .input-search,
+  .btn-search {
+    border: none !important;
+    opacity: 1 !important;
+  }
+
+  #btn-search {
+    border-radius: 0 0.25rem 0.25rem 0;
+    background-color: var(--gray-5);
+    height: 100%;
+    padding: 0 1vw;
+  }
+
+  .form-control:focus {
+    border-color: transparent transparent !important;
+    box-shadow: none !important;
+  }
 }
 
-.searchTerm {
-  height: 58px;
-  border:none;
-  font-family: 'Noto Rashi Hebrew', sans-serif;
-  background-color: #EEEEEE;
-}
-
-.searchTerm:focus {
-  color: #6B6B6B;
-}
-
-.searchButton {
-  background: url("~src/assets/icons/Icon%20ionic-ios-search.svg");
-  width: 72px;
-  height: 58px;
-  background: #DEDEDE;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-}
-
-/*Resize the wrap to see the search bar change!*/
-.wrap {
-
-}

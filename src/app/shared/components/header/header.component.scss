@@ -1,8 +1,105 @@
-#header_container{
+#header-container {
   width: 100%;
-  left: 0;
-  top: 0;
-  position: fixed;
+  //TODO: Examinar
+  //left: 0;
+  //top: 0;
+  //position: fixed;
   z-index: 2;
-  background-color: white;
+  background-color: var(--background);
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2vw 6vw 1.2vw 3vw;
+
+    #logo {
+      width: 24.5vw;
+      margin-right: 8vw;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    #actions {
+      width: 50vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img, a img {
+        width: calc(20px + 1vw);
+      }
+
+      #search-container {
+        width: 35vw;
+
+        .app-search-container {
+          width: 100%;
+        }
+      }
+
+      #cart {
+        display: flex;
+        padding: 0.5vw;
+
+        .wrapper {
+          justify-content: start;
+          align-items: start;
+          min-height: 100vh;
+        }
+
+        .badge {
+          display: inline-block;
+          padding: calc(4px + 0.1vw) calc(4px + 0.4vw); /* rem unit */
+          border-radius: 50%;
+          justify-content: center;
+          text-align: center;
+          background: var(--primary);
+          color: var(--background);
+        }
+      }
+
+      #login {
+        color: var(--background-dark);
+        border: 1px solid var(--background-dark);
+        font-weight: bold;
+        padding: 0.4vw
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #header-container {
+    #user-icon, #login {
+      display: none;
+    }
+
+    header {
+      #logo {
+        width: 40vw;
+        margin-right: 8vw;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      #actions {
+        display: block;
+
+        #search-container {
+          width: 30vw;
+        }
+
+        #cart {
+          //TODO: Llevar a la derecha
+        }
+      }
+
+    }
+  }
 }

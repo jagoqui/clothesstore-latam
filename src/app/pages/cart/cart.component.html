@@ -1,20 +1,92 @@
-<div class="container" *ngIf="items; else voidCart">
-  <div class="row">
-    <!-- Carrito -->
-    <aside class="col-sm-4">
-      <h2>Carrito</h2>
-      <!-- Elementos del carrito -->
-      <div *ngFor="let item of items" style="margin-top: 10px">
-        <a id="card_link">
-          <app-product-card [product]="item.product"></app-product-card>
-        </a>
+<div *ngIf="cart$ | async as items" id="cart-container" style="margin-bottom: 100px">
+  <main>
+    <div class="cart-item-container">
+      <div class="promo-code-contain">
+        <label for="promo-code">Enter a promotional code</label>
+        <input
+          class="promo-code-field"
+          id="promo-code"
+          maxlength="5"
+          name="promo-code"
+          placeholder="XXXXXXXXXX"
+          style="background: var(--gray-3) 0 0 no-repeat padding-box !important; color: var(--accent)"
+          type="text"
+        />
+        <button class="promo-code-cta">Aplicar</button>
       </div>
-      <hr />
-      <!-- Precio total -->
-      <p class="text-right">Total: <span id="total"></span>&euro;</p>
-      <button id="boton-vaciar" class="btn btn-danger" (click)="onClear()">Vaciar</button>
+      <div class="cart-item-headers">
+        <ul>
+          <li class="item item-heading">Item</li>
+          <li class="price">Price</li>
+          <li class="quantity">Quantity</li>
+          <li class="subtotal">Subtotal</li>
+        </ul>
+      </div>
+      <div *ngFor="let item of items" class="cart-item">
+        <div class="item">
+          <div class="product-image">
+            <img [src]="item.productThumbnail" alt="product image" class="product-frame" />
+          </div>
+          <div class="product-details">
+            <h1>
+              <strong>
+                <span class="item-quantity">{{ item.productQty }}</span> x {{ item.productName }}
+              </strong>
+            </h1>
+            <p><strong>Navy, Size 18</strong></p>
+            <p>Product Code - 232321939</p>
+          </div>
+        </div>
+        <div class="price">{{ item.productPrice | currency: 'COP':'symbol-narrow':'1.0-0' }}</div>
+        <div class="quantity">
+          <input
+            class="quantity-field"
+            #qty
+            min="1"
+            max="100"
+            [value]="item.productQty"
+            type="number"
+            (change)="updateItem(+qty.value, item.productId)"
+          />
+        </div>
+        <div class="subtotal">{{ item.productQty * item.productPrice | currency: 'COP':'symbol-narrow':'1.0-0' }}</div>
+        <div class="remove">
+          <button (click)="deleteItem(item.productId)">REMOVER ITEM</button>
+        </div>
+      </div>
+      <div class="remove">
+        <button (click)="onClear()">REMOVER TODOS LOS ITEMS</button>
+      </div>
+    </div>
+    <aside>
+      <div class="summary">
+        <div class="summary-total-items"><span class="total-items"></span> Items en tu carrito</div>
+        <div class="summary-subtotal">
+          <div class="subtotal-title">Subtotal</div>
+          <div class="subtotal-value final-value" id="basket-subtotal">
+            {{ cartSvc.totalPrice | currency: 'COP':'symbol-narrow':'1.0-0' }}
+          </div>
+          <div class="summary-promo hide">
+            <div class="promo-title">Promotion</div>
+            <div class="promo-value final-value" id="basket-promo"></div>
+          </div>
+        </div>
+        <div class="summary-delivery">
+          <select id="delivery-form" class="summary-delivery-selection" name="delivery-collection">
+            <option selected="selected" value="0">Seleccione la forma de entrega</option>
+            <option value="collection">Domicilio</option>
+            <option value="first-class">Recogerlo en nuestas tiendas</option>
+            <option value="signed-for">Acordar con el vendedor</option>
+          </select>
+        </div>
+        <div class="summary-total">
+          <div class="total-title">Total</div>
+          <div class="total-value final-value" id="basket-total">{{ cartSvc.totalPrice }}</div>
+        </div>
+        <div class="summary-checkout">
+          <button class="checkout-cta">Pagar</button>
+        </div>
+      </div>
     </aside>
-  </div>
+  </main>
 </div>
-
-<ng-template #voidCart> El carrito no tiene productos</ng-template>

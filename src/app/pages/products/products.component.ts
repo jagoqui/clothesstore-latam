@@ -31,6 +31,12 @@ export class ProductsComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.destroy$))
         .subscribe(
           (itemsResponse) => {
+            if (params.q === 'ofertas') {
+              this.products = itemsResponse.results.filter((product) =>
+                product.prices.prices.find((price) => price.type === 'promotion')
+              );
+              return;
+            }
             this.products = itemsResponse.results;
           },
           () => {

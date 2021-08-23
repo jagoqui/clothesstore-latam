@@ -1,7 +1,7 @@
-import { Product } from '@appShared/models/Products/product.model';
-
 export interface ItemCart {
-  idUser?: number;
-  product: Product;
-  quantity: number;
+  productId: string;
+  productName: string;
+  productThumbnail: string;
+  productPrice: number;
+  productQty: number;
 }

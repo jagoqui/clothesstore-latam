@@ -1,28 +1,27 @@
-$nav-background:black;
-
 nav label, #hamburger {
   display: none;
 }
 
 nav {
   width: 100%;
-  background: $nav-background;
+  background: var(--background-dark);
+
   #filters {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: row;
-    padding: 1vw 0;
+    padding: 1.1vw 10vw;
 
     a {
-      font-size: 150%;
-      font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
-      color: white;
-      padding: 0.5vw 2vw;
+      font-size: 165%;
+      color: var(--background);
+      padding: 0.5vw 1vw;
       text-decoration: none;
       text-align: center;
-      border-right: 1px solid white;
+      border-right: 1px solid var(--background);
 
-      &:nth-last-child(1){
+      &:nth-last-child(1) {
         border-right: none;
       }
 
@@ -35,7 +34,7 @@ nav {
 
 }
 
-@media screen and (max-width: 480px) {
+@media  (max-width: 480px) {
   nav {
     label {
       display: inline-block;
@@ -43,15 +42,16 @@ nav {
       font-style: normal;
       font-size: 3em;
       padding: 10px;
+      color: var(--gray-2);
     }
 
     input:checked ~ #filters {
       display: block;
-      background: white;
+      background: var(--background);
       //TODO: Colocar el hight del nav al 100% y volverlo blanco y ajusta el ancho al 80%
 
       a {
-        color: black;
+        color: var(--background-dark);
       }
     }
 
@@ -62,7 +62,7 @@ nav {
 
       &:before {
         content: "X";
-        //color: #5B17AA;
+        color: var(--primary);
         font-size: 30px;
         font-weight: 700;
       }

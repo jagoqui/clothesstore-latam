@@ -17,7 +17,6 @@ export class AppComponent implements AfterContentChecked {
   ) {}
 
   ngAfterContentChecked() {
-    this.loaderSvc.setLoading(false);
     this.changeDetRef.detectChanges();
     this.spinner
       .show(undefined, {
