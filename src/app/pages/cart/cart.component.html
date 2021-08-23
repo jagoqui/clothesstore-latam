@@ -1,5 +1,5 @@
 <div *ngIf="cart$ | async as items" id="cart-container" style="margin-bottom: 100px">
-  <main>
+  <main *ngIf="items.length > 0">
     <div class="cart-item-container">
       <div class="promo-code-contain">
         <label for="promo-code">Enter a promotional code</label>

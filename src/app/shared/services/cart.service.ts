@@ -2,7 +2,15 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ItemCart } from '@appShared/models/shared/cart.model';
 
-const initialState: ItemCart[] = [];
+const initialState: ItemCart[] = [
+  {
+    productId: '',
+    productQty: 1,
+    productPrice: 12500,
+    productName: 'Camiseta',
+    productThumbnail: ''
+  }
+];
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +24,6 @@ export class CartService {
   }
 
   get totalItems() {
-    console.log(this.subjectStore.value.length);
     if (this.subjectStore.value.length === 0) {
       return 0;
     }
@@ -24,6 +31,9 @@ export class CartService {
   }
 
   get totalPrice() {
+    if (this.subjectStore.value.length === 0) {
+      return this.subjectStore.value[0].productPrice;
+    }
     return this.subjectStore.value
       .map((item) => item.productQty * item.productPrice)
       .reduce((acc, val) => (acc + val ? val : 0));
