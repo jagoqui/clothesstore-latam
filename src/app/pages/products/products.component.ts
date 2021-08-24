@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import SwAlert from 'sweetalert2';
 import { Product } from '@appShared/models/Products/product.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-products',
@@ -17,13 +18,15 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   constructor(
     private productsByCategorySvc: ProductsByCategoryService,
-    private productSearchControlSvc: ProductSearchControlService
+    private productSearchControlSvc: ProductSearchControlService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.productSearchControlSvc.paramsSearch$.subscribe((params) => {
       if (params.q === '') {
         this.products = [];
+        this.router.navigate(['/']).then();
         return;
       }
       this.productsByCategorySvc

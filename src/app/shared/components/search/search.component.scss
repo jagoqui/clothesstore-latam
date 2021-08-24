@@ -28,4 +28,16 @@
     box-shadow: none !important;
   }
 }
-
+@media  (max-width: 860px) {
+  .input-search {
+    background: var(--gray-3) 0 0 no-repeat padding-box !important;
+    color: var(--accent);
+    font-stretch: expanded;
+    padding: .5vw;
+    width: 100%;
+    font-size: 50%;
+    &::placeholder{
+      font-size: 50%;
+    }
+  }
+}

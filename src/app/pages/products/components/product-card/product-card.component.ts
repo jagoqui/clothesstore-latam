@@ -2,6 +2,7 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Product } from '@appShared/models/Products/product.model';
 import { CartService } from '@appShared/services/cart.service';
 import { ItemCart } from '@appShared/models/shared/cart.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -13,7 +14,7 @@ export class ProductCardComponent implements OnChanges {
   pricePromotion: number | undefined;
   discount: number | undefined;
 
-  constructor(private cartSvc: CartService) {}
+  constructor(private cartSvc: CartService, private router: Router) {}
 
   addToCart(product: Product) {
     const newItemCart: ItemCart = {
@@ -36,5 +37,9 @@ export class ProductCardComponent implements OnChanges {
         this.discount = 1 - amount / product.price;
       }
     }
+  }
+
+  viewMore(permalink: string) {
+    this.router.navigate([permalink]).then();
   }
 }
