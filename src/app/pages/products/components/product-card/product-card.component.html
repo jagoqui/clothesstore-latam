@@ -1,7 +1,14 @@
 <div id="card" *ngIf="product">
   <span id="discount" *ngIf="pricePromotion">-{{ discount | percent }}</span>
   <span id="golden-listing" *ngIf="product.listing_type_id === 'gold_pro'">🌟</span>
-  <img id="card-image" [alt]="product.title" [src]="product.thumbnail" is="image" rel="preload" />
+  <img
+    id="card-image"
+    [alt]="product.title"
+    [src]="product.thumbnail"
+    is="image"
+    rel="preload"
+    (click)="viewMore(product.permalink)"
+  />
   <div id="card-details">
     <span>{{ product.title }}</span>
     <div id="prices">
