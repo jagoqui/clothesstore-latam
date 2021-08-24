@@ -32,7 +32,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: calc(9px + 0.5vw);
+  font-size: 20px
 }
 
 html, body {
@@ -117,7 +117,9 @@ a, li, label {
   text-decoration: none;
   color: var(--background);
 }
+/*
 
 section {
   height: 100vh;
 }
+*/

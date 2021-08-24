@@ -1,13 +1,8 @@
-@charset "utf-8";
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
-
-
 #cart-container {
   background-color: var(--background);
   color: var(--accent);
-  font-size: 62.5%;
-  margin: 0 auto;
+  margin-top: 240px;
+
 
   main {
     input,

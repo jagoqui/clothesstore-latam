@@ -12,6 +12,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1.2vw 6vw 1.2vw 3vw;
+    height: 140px;
 
     #logo {
       width: 24.5vw;
@@ -43,12 +44,6 @@
       #cart {
         display: flex;
         padding: 0.5vw;
-
-        .wrapper {
-          justify-content: start;
-          align-items: start;
-          min-height: 100vh;
-        }
 
         .badge {
           display: inline-block;
