@@ -38,9 +38,6 @@ export class CartService {
   }
 
   get totalPrice() {
-    if (this.subjectStore.value.length === 0) {
-      return this.subjectStore.value[0].productPrice;
-    }
     return this.subjectStore.value
       .map((item) => item.productQty * item.productPrice)
       .reduce((acc, val) => (acc + val ? val : 0));
