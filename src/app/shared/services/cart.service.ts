@@ -4,11 +4,11 @@ import { ItemCart } from '@appShared/models/shared/cart.model';
 
 const initialState: ItemCart[] = [
   {
-    productId: '',
+    productId: 'MCO571557808',
     productQty: 1,
-    productPrice: 12500,
-    productName: 'Camiseta',
-    productThumbnail: ''
+    productPrice: 105000,
+    productName: 'Bota Converse All Star Unisex Importada',
+    productThumbnail: 'https://http2.mlstatic.com/D_643445-MCO42732622767_072020-O.jpg'
   }
 ];
 
@@ -20,10 +20,10 @@ export class CartService {
   store$ = this.subjectStore.asObservable();
 
   constructor() {
-    const cartItems: ItemCart[] = JSON.parse(<string>localStorage.getItem('CartItems'));
-    if (cartItems) {
-      this.subjectStore.next(cartItems);
-    }
+    // const cartItems: ItemCart[] = JSON.parse(<string>localStorage.getItem('CartItems'));
+    // if (cartItems) {
+    //   this.subjectStore.next(cartItems);
+    // }
   }
 
   get cart() {
@@ -61,7 +61,7 @@ export class CartService {
     if (productIndex !== -1) {
       products[productIndex].productQty += 1;
       this.subjectStore.next(products);
-      localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
+      // localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
       return;
     }
     this.subjectStore.next([...products, { ...item, productQty: 1 }]);
@@ -69,7 +69,7 @@ export class CartService {
 
   removeItem(productId: string) {
     const products = this.subjectStore.value.filter((x) => x.productId !== productId);
-    localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
+    // localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
     this.subjectStore.next(products);
   }
 
@@ -85,6 +85,6 @@ export class CartService {
   clear() {
     this.subjectStore.next([]);
     this.subjectStore.complete();
-    localStorage.removeItem('CartItems');
+    // localStorage.removeItem('CartItems');
   }
 }

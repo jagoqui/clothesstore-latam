@@ -3,6 +3,7 @@ import { CartService } from '@appShared/services/cart.service';
 import { ItemCart } from '@appShared/models/shared/cart.model';
 import { Observable } from 'rxjs';
 import SwAlert from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,7 @@ import SwAlert from 'sweetalert2';
 export class CartComponent {
   cart$: Observable<ItemCart[]> = this.cartSvc.cart;
 
-  constructor(public cartSvc: CartService) {}
+  constructor(public cartSvc: CartService, private router: Router) {}
 
   deleteItem(productId: string) {
     return this.cartSvc.removeItem(productId);
@@ -36,6 +37,7 @@ export class CartComponent {
     }).then((resultDelete) => {
       if (resultDelete.isConfirmed) {
         this.cartSvc.clear();
+        this.router.navigate(['/']).then();
         SwAlert.fire(`El carrito fue vaciado! `, '', 'success').then();
       }
     });
