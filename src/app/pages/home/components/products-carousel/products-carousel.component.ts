@@ -12,7 +12,7 @@ export class ProductsCarouselComponent implements OnInit {
   customOptions: OwlOptions = {
     loop: true,
     autoHeight: true,
-    margin: 5,
+    autoWidth: true,
     lazyLoad: true,
     fluidSpeed: true,
     mouseDrag: true,
@@ -24,7 +24,6 @@ export class ProductsCarouselComponent implements OnInit {
     autoplay: true,
     autoplayHoverPause: true,
     mergeFit: true,
-    autoWidth: true,
     autoplayTimeout: 4000,
     responsive: {
       0: {

@@ -1,9 +1,14 @@
 #card {
   border: 1px var(--gray-4) solid;
   transition: all 0.6s;
-  width: 250px;
-  min-height: 400px;
+  max-height: 562px;
+  height: 562px;
+  width: 337px;
   padding:0;
+
+  #discount, #golden-listing{
+    position: absolute;
+  }
 
   #discount{
     padding: 0.5vw;
@@ -12,25 +17,30 @@
   }
 
   #golden-listing{
-    float:right;
   }
 
-  #product-card-container{
-    width: 100%;
-    min-height: 250%;
-    overflow-x: auto;
-    overflow-y: auto;
-    opacity: 0.75;
-    img {
-      width:100%;
-      display: block;
-      object-fit: cover;
-      object-position: center center;
-    }
-    &:hover{
-      opacity: 1;
-    }
+  #card-image {
+    width: inherit;
+    height: 351px;
+    object-fit: cover;
   }
+
+  //#product-card-container{
+  //  width: 100%;
+  //  min-height: 250%;
+  //  overflow-x: auto;
+  //  overflow-y: auto;
+  //  opacity: 0.75;
+  //  img {
+  //    width:100%;
+  //    display: block;
+  //    object-fit: cover;
+  //    object-position: center center;
+  //  }
+  //  &:hover{
+  //    opacity: 1;
+  //  }
+  //}
   #card-details {
     background-color: var(--ligther);
     padding: 30px;
@@ -89,7 +99,7 @@
 
 @media screen and (max-width: 480px) {
   #card {
-    width: 100%;
+    width: 95%;
     #product-card-container{
       opacity: 1;
     }
