@@ -54,10 +54,14 @@
             display: inline-block;
             padding: 0.2vw 0.5vw;
             border-radius: 50%;
-            justify-content: center;
-            text-align: center;
             background: var(--primary);
             color: var(--background);
+            justify-content: center;
+            text-align: center;
+
+          }
+          .badge-max{
+            padding: 0.1vw;
           }
         }
 

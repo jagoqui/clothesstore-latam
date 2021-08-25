@@ -6,6 +6,7 @@ import { HeaderComponent } from '@appShared/components/header/header.component';
 import { SearchComponent } from '@appShared/components/search/search.component';
 import { FooterComponent } from '@appShared/components/footer/footer.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './components/navbar/navbar.component';
 
 export const playerFactory = () => import(/* webpackChunkName: 'lottie-web' */ 'lottie-web');
@@ -15,7 +16,7 @@ const modulesExport = [CommonModule, RouterModule, LottieModule.forRoot({ player
 
 @NgModule({
   declarations: [componentsExport, SearchComponent, NavbarComponent],
-  imports: [modulesExport, ReactiveFormsModule],
+  imports: [modulesExport, ReactiveFormsModule, ToastrModule.forRoot()],
   exports: [modulesExport, componentsExport]
 })
 export class SharedModule {}
