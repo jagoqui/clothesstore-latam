@@ -16,8 +16,26 @@ export class CartComponent {
 
   constructor(public cartSvc: CartService, private router: Router) {}
 
-  deleteItem(productId: string) {
-    return this.cartSvc.removeItem(productId);
+  deleteItem(productId: string, productName: string) {
+    SwAlert.fire({
+      title: 'Está seguro?',
+      text: 'Si eliminara el item con todos su productos del carrito',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then((resultDelete) => {
+      if (resultDelete.isConfirmed) {
+        this.cartSvc.removeItem(productId, productName);
+        SwAlert.fire(`El carrito fue vaciado! `, '', 'success').then(() => {
+          if (this.cartSvc.totalItems === 0) {
+            this.router.navigate(['/']).then();
+          }
+        });
+      }
+    });
   }
 
   updateItem(qty: number, productId: string) {

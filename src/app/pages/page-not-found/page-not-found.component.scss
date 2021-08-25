@@ -5,10 +5,10 @@
   animation: animationRotateIn linear 0.7s;
   animation-iteration-count: 1;
   transform-origin: 50% 50%;
-  background-color: red;
+  background-color: var(--ligther-1);
   z-index: 9999;
 
-  span{
+  span, a{
     font-size:100px;
   }
 

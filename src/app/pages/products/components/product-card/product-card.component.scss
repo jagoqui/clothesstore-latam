@@ -13,7 +13,7 @@
 
   position: relative;
 
-  #discount, #golden-listing {
+  #discount, #golden-listing, #added-cart{
     position: absolute;
     top: 20px;
   }
@@ -47,9 +47,13 @@
     text-justify: inter-word;
     word-wrap: break-word;
 
-    h2 {
-      text-align: left;
-      font-weight: lighter;
+    #name {
+      text-align: justify;
+      font-weight: normal;
+      color: var(--background-dark);
+      &:hover{
+        text-decoration: underline;
+      }
     }
 
     #prices {
@@ -80,23 +84,35 @@
 
   }
 
-  button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
+  #add-to-cart{
+    position: relative;
 
-    &:hover {
-      opacity: 0.7;
+    #added-cart {
+      left: 90px;
+      top:10px;
+      font-size: 12px;
+      color: var(--accent);
+      position: center;
     }
 
-    img {
-      color: white;
+    button {
+      border: none;
+      outline: 0;
+      padding: 12px;
+      color: var(--background);
+      background-color: #000;
+      text-align: center;
+      cursor: pointer;
+      width: 100%;
+      font-size: 18px;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      img {
+        color: white;
+      }
     }
   }
 

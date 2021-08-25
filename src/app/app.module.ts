@@ -23,8 +23,8 @@ registerLocaleData(localSpCo);
     BrowserAnimationsModule,
     HttpClientModule,
     NgxSpinnerModule,
-    SharedModule,
-    HomeModule
+    HomeModule,
+    SharedModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-CO' },

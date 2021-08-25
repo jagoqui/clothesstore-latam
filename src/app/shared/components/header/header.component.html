@@ -7,12 +7,14 @@
       <div id="search-container">
         <app-search [buttonQuery]="query"></app-search>
       </div>
-      <div id="cart">
-        <a routerLink="/cart" id="cart-icon"><img alt="Cart icon" src="assets/icons/icon-cart.svg" /></a>
+      <a id="cart" routerLink="/cart" title="Ver carrito">
+        <img alt="Cart icon" src="assets/icons/icon-cart.svg" />
         <div class="wrapper-badge">
-          <span class="badge">{{ cartSvc.totalItems < 10 ? cartSvc.totalItems : '9+' }}</span>
+          <span class="badge" [ngClass]="cartSvc.totalItems > 9 ? 'badge-max' : ''">{{
+            cartSvc.totalItems < 100 ? cartSvc.totalItems : '9+'
+          }}</span>
         </div>
-      </div>
+      </a>
       <a routerLink="/" id="user-icon"><img alt="user-icon" src="assets/icons/icon-user.svg" /></a>
       <button id="login">Iniciar sesión</button>
     </div>
