@@ -1,96 +1,59 @@
-nav label, #hamburger {
-  display: none;
-}
-
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  background: var(--background-dark);
-
-  #filters {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    padding: 1.1vw 10vw;
-
-    a {
-      font-size: 165%;
-      color: var(--background);
-      padding: 0.5vw 1vw;
-      text-decoration: none;
-      text-align: center;
-      border-right: 1px solid var(--background);
-
-      &:nth-last-child(1) {
-        border-right: none;
-      }
-
-      &:hover {
-        background: rgba(255, 255, 255, 0.3);
-      }
+  #close-sidebar{
+    width: 100%;
+    text-align:right;
+    padding-right:2.083vw;
+    padding-top: 2.1875vw;
+    img:hover{
+      background-color: var(--ligther);
     }
-
   }
 
-}
-
-@media  (max-width: 860px) {
-  nav {
-    label {
-      display: inline-block;
-      background: transparent;
-      font-style: normal;
-      font-size: 2.5em;
-      padding: 10px;
+  #filters {
+    &.navbar-mode {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      text-align: start;
+      height: 5.208vw;
+      background: var(--background-dark);
+
+      span {
+        font-size: 1.659375vw;
+        font-weight: bold;
+        color: var(--background);
+        padding: 0.5vw 1vw;
+        text-decoration: none;
+        text-align: center;
+        border-right: 0.052vw solid var(--background);
+
+        &:nth-last-child(1) {
+          border-right: none;
+        }
+
+        &:hover {
+          background: var(--ligther-1);
+        }
+      }
     }
 
-    input:checked ~ #filters {
+    &.sidebar-mode {
       position: absolute;
       top: 0;
       left: 0;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
       height: 100vh;
-      width: 80%;
-      margin-top:30px;
+      width: 90.68%;
+      padding-top: 1.667vw;
+      padding-left: 3.125vw;
+      gap: 2.1875vw 0;
       background: var(--background);
-
+      box-shadow: 0 0.15625vw 0.3125vw #00000029;
       a {
         color: var(--background-dark);
-        font-size: 30px;
-      }
-    }
-
-    input:checked ~ label {
-      position: absolute;
-      top: 0;
-      right: 20vw;
-      font-size: 0;
-      width: 100%;
-      text-align: end;
-
-      &:before {
-        content: "X";
-        color: var(--primary);
-        font-size: 50px;
-        font-weight: bold;
-      }
-    }
-
-    #filters {
-      display: none;
-
-      a {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        text-align: left;
-        padding: 10px 20px;
+        font-size: 1.667vw;
       }
     }
   }
