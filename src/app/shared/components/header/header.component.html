@@ -1,20 +1,34 @@
 <div id="header-container">
   <header>
-    <div id="hamburger" (click)="sidebarOpened = true" title="Abrir menú">&#9776;</div>
+    <img
+      id="hamburger"
+      src="assets/icons/hamburger.svg"
+      alt="hamburger menu"
+      (click)="sidebarOpened = true"
+      title="Abrir menú"
+      #hamburger
+    />
+
     <img id="logo" src="assets/icons/logo.svg" alt="logo" (click)="query = ''" routerLink="/" title="Ir al inicio" />
-    <div id="actions">
-      <app-search [buttonQuery]="query"></app-search>
-      <a id="cart" routerLink="/cart" title="Ver carrito">
-        <img id="cart-icon" alt="Cart icon" src="assets/icons/icon-cart.svg" />
-        <span class="badge">
-          {{ cartSvc.totalItems < 100 ? cartSvc.totalItems : '9+' }}
-        </span>
-      </a>
-      <img id="user-icon" alt="user-icon" src="assets/icons/icon-user.svg" routerLink="/" />
-      <div id="login">Iniciar sesión</div>
-    </div>
+    <app-search [buttonQuery]="query"></app-search>
+    <a id="cart" routerLink="/cart" title="Ver carrito">
+      <img id="cart-icon" alt="Cart icon" src="assets/icons/icon-cart.svg" />
+      <span class="badge">
+        {{ cartSvc.totalItems < 100 ? cartSvc.totalItems : '9+' }}
+      </span>
+    </a>
+    <img id="user-icon" alt="user-icon" src="assets/icons/icon-user.svg" routerLink="/" />
+    <div id="login">Iniciar sesión</div>
   </header>
   <app-navbar
+    id="navbar-mode"
+    [class]="sidebarOpened ? 'sidebar-mode' : 'navabar-mode'"
+    [sidebarMode]="sidebarOpened"
+    (sidebarClose)="sidebarOpened = !$event.valueOf()"
+    (query)="query = $event.valueOf()"
+  ></app-navbar>
+  <app-navbar
+    *ngIf="sidebarOpened"
     [sidebarMode]="sidebarOpened"
     (sidebarClose)="sidebarOpened = !$event.valueOf()"
     (query)="query = $event.valueOf()"

@@ -2,9 +2,8 @@ footer {
   background: var(--background-dark);
   color: var(--background);
   padding: 5vw 3vw 1vw;
-  //position: relative;
-  //clear: both;
-  //margin-top: auto;
+  position: relative;
+  bottom:0;
 
   #sections {
     display: flex;

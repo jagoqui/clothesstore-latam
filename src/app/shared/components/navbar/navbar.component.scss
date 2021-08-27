@@ -1,31 +1,36 @@
 nav {
-  #close-sidebar{
-    width: 100%;
-    text-align:right;
-    padding-right:2.083vw;
-    padding-top: 2.1875vw;
-    img:hover{
-      background-color: var(--ligther);
+  height: 5.208vw;
+
+  #close-sidebar {
+    text-align: right;
+    padding-right: 6.2vw;
+    padding-top: 6.2vw;
+    cursor: pointer;
+
+    img {
+      width: 6.2vw;
+
+      &:hover {
+        background-color: var(--ligther);
+      }
     }
   }
 
   #filters {
     &.navbar-mode {
       display: flex;
-      align-items: center;
       justify-content: center;
-      width: 100%;
-      height: 5.208vw;
       background: var(--background-dark);
+      padding: 0.859375vw 0;
 
       span {
+        height: 3.4375vw;
         font-size: 1.659375vw;
         font-weight: bold;
         color: var(--background);
-        padding: 0.5vw 1vw;
         text-decoration: none;
-        text-align: center;
         border-right: 0.052vw solid var(--background);
+        padding: 0.5vw 40px;
 
         &:nth-last-child(1) {
           border-right: none;
@@ -45,15 +50,22 @@ nav {
       flex-direction: column;
       text-align: left;
       height: 100vh;
-      width: 90.68%;
-      padding-top: 1.667vw;
-      padding-left: 3.125vw;
+      width: 92.01vw;
+      padding-top: 4.52vw;
+      padding-left: 8.08vw;
       gap: 2.1875vw 0;
       background: var(--background);
-      box-shadow: 0 0.15625vw 0.3125vw #00000029;
-      a {
+      box-shadow: 0 0.15625vw 0.3125vw var(--darker-1);
+
+      span {
         color: var(--background-dark);
-        font-size: 1.667vw;
+        font-size: 4.24vw;
+        font-weight: bold;
+        padding-bottom: 5.73vw;
+
+        &:hover{
+          background-color: var(--darker-1);
+        }
       }
     }
   }

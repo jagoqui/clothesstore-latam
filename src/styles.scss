@@ -35,13 +35,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 20px
 }
 
 html, body {
   height: 100%;
   font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
-  font-size: 18px;
 }
 
 html,
@@ -63,7 +61,7 @@ html {
 
 h1, h2, h3, a, li {
   font-family: "HelveticaNeue-Bold", "Helvetica Neue", serif;
-  font-weight: bolder;
+  font-weight: bold;
 }
 
 input[type="submit"],
@@ -121,9 +119,3 @@ a, li, label {
   text-decoration: none;
   color: var(--background);
 }
-/*
-
-section {
-  height: 100vh;
-}
-*/
