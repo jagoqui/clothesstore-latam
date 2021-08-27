@@ -1,10 +1,6 @@
 #home-container {
   margin-top: 9.21875vw;
 
-  app-images-carousel {
-    height: 38.802vw;
-  }
-
   article {
     margin-top: 3.552vw;
 
@@ -53,6 +49,7 @@
 
 @media (max-width: 751px) {
   #home-container {
+    margin-top: 28.36vw;
     article {
       #highlighted-categories {
         flex-direction: column;
