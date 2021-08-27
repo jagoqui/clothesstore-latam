@@ -123,10 +123,11 @@ footer {
           & ~ .section-details {
             display: flex;
             flex-direction: column;
+            margin-top: 2.66vw;
 
             p {
               font-size: 3.63vw;
-              margin-bottom:20px;
+              margin-bottom:0.67vw;
             }
           }
         }
