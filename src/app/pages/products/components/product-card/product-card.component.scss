@@ -90,11 +90,11 @@
     position: relative;
 
     #added-cart {
+      position: absolute;
       left: 90px;
       top: 10px;
       font-size: 12px;
       color: var(--accent);
-      position: center;
     }
 
     button {
@@ -107,6 +107,8 @@
       cursor: pointer;
       width: 100%;
       font-size: 18px;
+      display: flex;
+      justify-content: center;
 
       &:hover {
         opacity: 0.7;
@@ -114,14 +116,12 @@
 
       img {
         color: white;
+        width: 17.21px;
+        height: 17.21px;
+        margin-right: 10px;
       }
     }
   }
 
 }
 
-@media screen and (max-width: 480px) {
-  #card {
-    width: 90%;
-  }
-}

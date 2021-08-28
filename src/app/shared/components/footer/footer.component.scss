@@ -81,7 +81,7 @@ footer {
     #sections {
       flex-direction: column;
 
-      div:nth-last-of-type(2) {
+      .section:nth-last-of-type(2) {
         display: initial;
       }
 

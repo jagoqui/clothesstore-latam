@@ -13,6 +13,8 @@
   </div>
   <div id="add-to-cart">
     <span id="added-cart" *ngIf="numAddedCart">{{ numAddedCart < 10 ? numAddedCart : '9+' }}</span>
-    <button (click)="addToCart(product)">🛒 Add to Cart</button>
+    <button (click)="addToCart(product)">
+      <img src="assets/icons/icon-cart-ligth.svg" alt="icon cart" /> Add to Cart
+    </button>
   </div>
 </div>
