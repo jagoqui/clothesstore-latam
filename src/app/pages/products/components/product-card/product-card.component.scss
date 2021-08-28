@@ -16,6 +16,9 @@
   #discount, #golden-listing, #added-cart {
     position: absolute;
     top: 20px;
+    &:hover{
+      cursor: pointer;
+    }
   }
 
   #discount {
