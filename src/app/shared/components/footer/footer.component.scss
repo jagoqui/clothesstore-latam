@@ -8,7 +8,7 @@ footer {
     justify-content: space-around;
     padding: 5.7734375vw 19.856250000000003vw 1.336vw 12.821875vw;
 
-    .section label, .section input, div:nth-last-of-type(2) {
+    .section label, .section input, .section:nth-last-of-type(2) {
       display: none;
     }
 
