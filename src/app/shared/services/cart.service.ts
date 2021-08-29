@@ -65,7 +65,7 @@ export class CartService {
     this.subjectStore.next(products);
     this.toastrSvc.warning(
       `${productName.slice(0, 20).toLocaleUpperCase()} fue removido del carrito`,
-      'Clothesstore' + ' LATAM'
+      'Clothesstore LATAM'
     );
   }
 
