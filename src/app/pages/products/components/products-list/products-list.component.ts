@@ -41,6 +41,7 @@ export class ProductsListComponent implements OnChanges, OnDestroy {
     const { scrollTop, scrollHeight, offsetHeight } = this.document.documentElement;
     this.showButtonScrollingUp = (yOffset || scrollTop) > this.scrollHeight;
     if (scrollTop + 1.5 * offsetHeight >= scrollHeight) {
+      console.warn(this.offset);
       this.productSearchControlSvc.params = {
         q: this.query,
         limit: this.productSearchControlSvc.itemPorPage,
