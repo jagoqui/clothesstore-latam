@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
@@ -6,7 +6,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   templateUrl: './images-carousel.component.html',
   styleUrls: ['./images-carousel.component.scss']
 })
-export class ImagesCarouselComponent implements OnInit {
+export class ImagesCarouselComponent {
   customOptions: OwlOptions = {
     loop: true,
     autoplay: true,
@@ -23,7 +23,4 @@ export class ImagesCarouselComponent implements OnInit {
     },
     nav: true
   };
-  constructor() {}
-
-  ngOnInit(): void {}
 }
