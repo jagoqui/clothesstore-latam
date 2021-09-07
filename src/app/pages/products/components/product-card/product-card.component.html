@@ -1,5 +1,5 @@
 <div id="card" *ngIf="product">
-  <span id="discount" *ngIf="pricePromotion" title="Producto en descuento">-{{ discount | percent }}</span>
+  <span id="discount" *ngIf="pricePromotion" title="Producto en descuento">-{{ discount | percent}}</span>
   <span id="golden-listing" *ngIf="product.listing_type_id === 'gold_pro'" title="Producto destacado">🌟</span>
   <img id="card-image" [alt]="product.title" [src]="product.thumbnail" is="image" rel="preload" />
   <div id="card-details">

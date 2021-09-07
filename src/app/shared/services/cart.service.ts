@@ -43,7 +43,7 @@ export class CartService {
 
   addItem(item: ItemCart) {
     const products = this.subjectStore.value;
-    const productIndex = this.findIndexProduct(item.productId);
+    const productIndex: number = this.findIndexProduct(item.productId);
 
     if (productIndex !== -1) {
       products[productIndex].productQty += 1;
