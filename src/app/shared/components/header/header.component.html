@@ -8,15 +8,24 @@
       title="Abrir menú"
     />
 
-    <img id="logo" src="assets/icons/logo.svg" alt="logo" (click)="query = ''" routerLink="/" title="Ir al inicio" />
+    <img
+      id="logo"
+      src="assets/icons/logo.svg"
+      alt="logo"
+      (click)="query = ''"
+      routerLink="/"
+      title="Ir al inicio"
+      width="100%"
+      height="100%"
+    />
     <app-search [buttonQuery]="query"></app-search>
     <a id="cart" routerLink="/cart" title="Ver carrito">
-      <img id="cart-icon" alt="Cart icon" src="assets/icons/icon-cart.svg" />
+      <img id="cart-icon" alt="Cart icon" src="assets/icons/icon-cart.svg" width="100%" height="100%" />
       <span class="badge">
         {{ cartSvc.totalItems < 100 ? cartSvc.totalItems : '9+' }}
       </span>
     </a>
-    <img id="user-icon" alt="user-icon" src="assets/icons/icon-user.svg" routerLink="/" />
+    <img id="user-icon" alt="user-icon" src="assets/icons/icon-user.svg" routerLink="/" width="100%" height="100%" />
     <div id="login">Iniciar sesión</div>
   </header>
   <app-navbar

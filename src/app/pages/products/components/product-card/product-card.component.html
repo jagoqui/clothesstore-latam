@@ -3,7 +3,15 @@
   <span *ngIf="product.listing_type_id === 'gold_pro'" id="golden-listing" title="Producto destacado">🌟</span>
   <img [alt]="product.title" [src]="product.thumbnail" id="card-image" is="image" rel="preload" />
   <div id="card-details">
-    <a [href]="product.permalink" id="name" target="_blank" title="Ver más sobre el producto">{{ product.title }}</a>
+    <a
+      [href]="toSafeUrl(product.permalink)"
+      class="product_name"
+      target="_blank"
+      rel="noopener"
+      title="Ver más sobre el producto"
+    >
+      {{ product.title }}
+    </a>
     <div id="prices">
       <p *ngIf="pricePromotion" id="price-promotion">{{ pricePromotion | currency: 'COP':'symbol-narrow':'1.0-0' }}</p>
       <p [ngClass]="pricePromotion ? 'price-regular' : 'price-amount'">
