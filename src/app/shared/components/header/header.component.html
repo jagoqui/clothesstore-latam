@@ -9,23 +9,30 @@
     />
 
     <img
-      id="logo"
-      src="assets/icons/logo.svg"
       alt="logo"
+      height="initial"
+      id="logo"
       (click)="query = ''"
       routerLink="/"
+      src="assets/icons/logo.svg"
       title="Ir al inicio"
-      width="100%"
-      height="100%"
+      width="initial"
     />
     <app-search [buttonQuery]="query"></app-search>
     <a id="cart" routerLink="/cart" title="Ver carrito">
-      <img id="cart-icon" alt="Cart icon" src="assets/icons/icon-cart.svg" width="100%" height="100%" />
+      <img alt="Cart icon" id="cart-icon" src="assets/icons/icon-cart.svg" width="initial" height="initial" />
       <span class="badge">
         {{ cartSvc.totalItems < 100 ? cartSvc.totalItems : '9+' }}
       </span>
     </a>
-    <img id="user-icon" alt="user-icon" src="assets/icons/icon-user.svg" routerLink="/" width="100%" height="100%" />
+    <img
+      alt="user-icon"
+      height="initial"
+      id="user-icon"
+      routerLink="/"
+      src="assets/icons/icon-user.svg"
+      width="initial"
+    />
     <div id="login">Iniciar sesión</div>
   </header>
   <app-navbar
