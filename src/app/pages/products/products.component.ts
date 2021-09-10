@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { ProductsByCategoryService } from '@appShared/services/products-by-category.service';
+import { ItemsByCategoryService } from '@appShared/services/items-by-category.service';
 import { ProductSearchControlService } from '@appShared/services/product-search-control.service';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -19,7 +19,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   private destroy$ = new Subject<unknown>();
 
   constructor(
-    private productsByCategorySvc: ProductsByCategoryService,
+    private itmesByCategorySvc: ItemsByCategoryService,
     private productSearchControlSvc: ProductSearchControlService,
     private router: Router
   ) {}
@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
         return;
       }
       if (params.offset <= this.primary_results) {
-        this.productsByCategorySvc
+        this.itmesByCategorySvc
           .searchItemsInCategory(params)
           .pipe(takeUntil(this.destroy$))
           .subscribe(

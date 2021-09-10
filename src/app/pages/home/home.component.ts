@@ -1,5 +1,5 @@
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
-import { ProductsByCategoryService } from '@appShared/services/products-by-category.service';
+import { ItemsByCategoryService } from '@appShared/services/items-by-category.service';
 import { takeUntil } from 'rxjs/operators';
 import SwAlert from 'sweetalert2';
 import { Subject } from 'rxjs';
@@ -15,12 +15,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   productsMostWanted: Product[] = [];
   private destroy$ = new Subject<unknown>();
 
-  constructor(private productsByCategorySvc: ProductsByCategoryService, @Inject(DOCUMENT) private document: Document) {
+  constructor(private itemsByCategorySvc: ItemsByCategoryService, @Inject(DOCUMENT) private document: Document) {
     this.document.documentElement.scrollTop = 0;
   }
 
   ngOnInit(): void {
-    this.productsByCategorySvc
+    this.itemsByCategorySvc
       .searchItemsInCategory()
       .pipe(takeUntil(this.destroy$))
       .subscribe(

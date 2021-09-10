@@ -8,7 +8,9 @@ import { ParamsSearch } from '@appShared/models/shared/params-search.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ProductsByCategoryService {
+export class ItemsByCategoryService {
+  public items: ItemsByCategory | undefined;
+
   constructor(private http: HttpClient) {}
 
   searchItemsInCategory(paramsSearch?: ParamsSearch): Observable<ItemsByCategory> {
@@ -30,5 +32,18 @@ export class ProductsByCategoryService {
     return this.http.get<ItemsByCategory>(`${environment.baseUrlCO}/search?category=${environment.categoryId}`, {
       params
     });
+  }
+
+  public getItemsByCategory(paramsSearch?: ParamsSearch): void {
+    this.searchItemsInCategory(paramsSearch).subscribe(
+      (items) => {
+        if (items) {
+          this.items = items;
+        }
+      },
+      () => {
+        this.items = undefined;
+      }
+    );
   }
 }
