@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { ItemCart } from '@appShared/models/shared/cart.model';
 import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +10,7 @@ export class CartService {
   subjectStore = new BehaviorSubject<ItemCart[]>([]);
   store$ = this.subjectStore.asObservable();
 
-  constructor(private toastrSvc: ToastrService, private router: Router) {
+  constructor(private toasterSvc: ToastrService) {
     const cartItems: ItemCart[] = JSON.parse(<string>localStorage.getItem('CartItems'));
     if (cartItems) {
       this.subjectStore.next(cartItems);
@@ -49,11 +48,11 @@ export class CartService {
       products[productIndex].productQty += 1;
       this.subjectStore.next(products);
       localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
-      this.toastrSvc.success(`${item.productName.slice(0, 20)} fue agregado al carrito`, 'Clothesstore LATAM');
+      this.toasterSvc.success(`${item.productName.slice(0, 20)} fue agregado al carrito`, 'Clothesstore LATAM');
       return;
     }
     this.subjectStore.next([...products, { ...item, productQty: 1 }]);
-    this.toastrSvc.success(
+    this.toasterSvc.success(
       `${item.productName.slice(0, 20).toUpperCase()} fue agregado al carrito`,
       'Clothesstore LATAM'
     );
@@ -63,7 +62,7 @@ export class CartService {
     const products = this.subjectStore.value.filter((x) => x.productId !== productId);
     localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
     this.subjectStore.next(products);
-    this.toastrSvc.warning(
+    this.toasterSvc.warning(
       `${productName.slice(0, 20).toLocaleUpperCase()} fue removido del carrito`,
       'Clothesstore LATAM'
     );
@@ -77,7 +76,7 @@ export class CartService {
       products[productIndex].productQty = qty;
     }
     localStorage.setItem('CartItems', JSON.stringify(this.subjectStore.value));
-    this.toastrSvc.success('Se actualizó el item correctamen', 'Clothesstore LATAM');
+    this.toasterSvc.success('Se actualizó el item correctamen', 'Clothesstore LATAM');
   }
 
   clear() {

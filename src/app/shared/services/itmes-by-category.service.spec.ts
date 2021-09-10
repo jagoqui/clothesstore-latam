@@ -1,14 +1,15 @@
-import { ParamsSearch } from '@appShared/models/shared/params-search.model';
 import { of, throwError } from 'rxjs';
 import { ItemsByCategory } from '@appShared/models/items-by-category.model';
 import { HttpErrorResponse } from '@angular/common/http';
-import { environment } from '@env/environment';
 import ItemsByCategorySample from '@assets/json/products_by_category_10_items.json';
+import { ParamsSearch } from '@appShared/models/shared/params-search.model';
+import { environment } from '@env/environment';
 import { ItemsByCategoryService } from './items-by-category.service';
 
 describe('ItemsByCategoryService', () => {
   let httpClientSpy: { get: jasmine.Spy };
   let itemsByCategorySvc: ItemsByCategoryService;
+
   beforeEach(() => {
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
     itemsByCategorySvc = new ItemsByCategoryService(httpClientSpy as any);
@@ -19,14 +20,13 @@ describe('ItemsByCategoryService', () => {
   });
 
   it('should return expected items (HttpClient called once)', () => {
-    // Mock de datos
-    const mockParamsSearch: ParamsSearch = { q: 'niños', limit: 10, offset: 0 };
+    // Data mock
     const mockProductsSearch: ItemsByCategory = ItemsByCategorySample as unknown as ItemsByCategory;
-
     httpClientSpy.get.and.returnValue(of(mockProductsSearch));
 
-    itemsByCategorySvc.getItemsByCategory(mockParamsSearch);
+    const mockParamsSearch: ParamsSearch = { q: 'niños', limit: 10, offset: 0 };
     const { q, limit, offset } = mockParamsSearch;
+    itemsByCategorySvc.getItemsByCategory(mockParamsSearch);
 
     expect(itemsByCategorySvc.items?.filters[0].values[0].id).toBe(environment.categoryId);
     expect(itemsByCategorySvc.items?.query).toBe(q);

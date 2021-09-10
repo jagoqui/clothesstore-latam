@@ -28,8 +28,8 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, './coverage/clothesstore-latam'),
       subdir: '.',
       reporters: [
-        { type: 'html' },
-        { type: 'text-summary' }
+        { type: 'html', subdir:'report-html'},
+        { type: 'text-summary' },
       ]
     },
     reporters: ['progress', 'kjhtml'],
