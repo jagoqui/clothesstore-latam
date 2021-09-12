@@ -87,8 +87,8 @@ button {
   }
 
   &:focus {
-    border-color: transparent !important;
-    box-shadow: none !important;
+    border-color: transparent;
+    box-shadow: none;
   }
 
   &:active {
@@ -103,11 +103,11 @@ button {
 }
 
 input {
-  border: none !important;
+  border: none;
 
   &:focus {
-    border-color: transparent transparent !important;
-    box-shadow: none !important;
+    border-color: transparent transparent;
+    box-shadow: none;
   }
 }
 
