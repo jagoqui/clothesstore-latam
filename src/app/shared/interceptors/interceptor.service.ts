@@ -44,7 +44,7 @@ export class InterceptorService implements HttpInterceptor {
                     Error ${err.status}! <b> ${InterceptorService.getServerErrorMessage(err)}</b>
                 </span>
                 `
-          }).then((_) => {
+          }).then(() => {
             this.loaderSvc.setLoading(false);
           });
         },

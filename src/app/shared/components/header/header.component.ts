@@ -8,6 +8,7 @@ import { CartService } from '@appShared/services/cart.service';
 })
 export class HeaderComponent {
   query: string = '';
+  sidebarOpened = false;
 
   constructor(public cartSvc: CartService) {}
 }

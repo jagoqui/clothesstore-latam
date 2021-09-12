@@ -49,7 +49,7 @@
         </div>
         <div class="subtotal">{{ item.productQty * item.productPrice | currency: 'COP':'symbol-narrow':'1.0-0' }}</div>
         <div class="remove">
-          <button (click)="deleteItem(item.productId, item.productName)">REMOVER ITEM</button>
+          <button (click)="deleteItem(item.productId, item.productName)" title="Remover item">REMOVER ITEM</button>
         </div>
       </div>
     </div>
@@ -79,10 +79,14 @@
           <div class="total-value final-value" id="basket-total">{{ cartSvc.totalPrice }}</div>
         </div>
         <div class="summary-checkout" style="margin-bottom: 3vw">
-          <button class="checkout-cta">Pagar</button>
+          <button class="checkout-cta" title="Pagar">Pagar</button>
         </div>
         <div class="summary-checkout">
-          <button (click)="onClear()" style="background-color: transparent; color: var(--primary)">
+          <button
+            (click)="onClear()"
+            style="background-color: transparent; color: var(--primary); text-align: center; width: 100%"
+            title="Remover todos los items"
+          >
             REMOVER ITEMS
           </button>
         </div>

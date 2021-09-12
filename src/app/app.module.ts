@@ -12,6 +12,8 @@ import { AppComponent } from '@app/app.component';
 import localSpCo from '@angular/common/locales/es-CO';
 import { registerLocaleData } from '@angular/common';
 import { HomeModule } from '@home/home.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 registerLocaleData(localSpCo);
 
@@ -24,7 +26,13 @@ registerLocaleData(localSpCo);
     HttpClientModule,
     NgxSpinnerModule,
     HomeModule,
-    SharedModule
+    SharedModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'es-CO' },

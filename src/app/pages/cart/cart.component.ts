@@ -1,9 +1,10 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { CartService } from '@appShared/services/cart.service';
 import { ItemCart } from '@appShared/models/shared/cart.model';
 import { Observable } from 'rxjs';
 import SwAlert from 'sweetalert2';
 import { Router } from '@angular/router';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-cart',
@@ -14,7 +15,9 @@ import { Router } from '@angular/router';
 export class CartComponent {
   cart$: Observable<ItemCart[]> = this.cartSvc.cart;
 
-  constructor(public cartSvc: CartService, private router: Router) {}
+  constructor(public cartSvc: CartService, private router: Router, @Inject(DOCUMENT) private document: Document) {
+    this.document.documentElement.scrollTop = 0;
+  }
 
   deleteItem(productId: string, productName: string) {
     SwAlert.fire({

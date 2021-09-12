@@ -1,96 +1,71 @@
-nav label, #hamburger {
-  display: none;
-}
-
 nav {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100px;
-  background: var(--background-dark);
+  height: 5.208vw;
 
-  #filters {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: row;
-    padding: 1.1vw 10vw;
+  #close-sidebar {
+    text-align: right;
+    padding-right: 6.2vw;
+    padding-top: 6.2vw;
+    cursor: pointer;
 
-    a {
-      font-size: 165%;
-      color: var(--background);
-      padding: 0.5vw 1vw;
-      text-decoration: none;
-      text-align: center;
-      border-right: 1px solid var(--background);
-
-      &:nth-last-child(1) {
-        border-right: none;
-      }
+    img {
+      width: 6.2vw;
 
       &:hover {
-        background: rgba(255, 255, 255, 0.3);
+        background-color: var(--ligther);
+      }
+    }
+  }
+
+  #filters {
+    &.navbar-mode {
+      display: flex;
+      justify-content: center;
+      background: var(--background-dark);
+      padding: 0.859375vw 0;
+
+      span {
+        height: 3.4375vw;
+        font-size: 1.659375vw;
+        font-weight: bold;
+        color: var(--background);
+        text-decoration: none;
+        border-right: 0.052vw solid var(--background);
+        padding: 0.5vw 40px;
+
+        &:nth-last-child(1) {
+          border-right: none;
+        }
+
+        &:hover {
+          background: var(--ligther-1);
+        }
       }
     }
 
-  }
-
-}
-
-@media  (max-width: 860px) {
-  nav {
-    label {
-      display: inline-block;
-      background: transparent;
-      font-style: normal;
-      font-size: 2.5em;
-      padding: 10px;
-      width: 100%;
-      text-align: start;
-    }
-
-    input:checked ~ #filters {
+    &.sidebar-mode {
       position: absolute;
       top: 0;
       left: 0;
-      display: block;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
       height: 100vh;
-      width: 80%;
-      margin-top:30px;
+      width: 92.01vw;
+      padding-top: 4.52vw;
+      padding-left: 8.08vw;
+      gap: 2.1875vw 0;
       background: var(--background);
+      box-shadow: 0 0.15625vw 0.3125vw var(--darker-1);
 
-      a {
+      span {
         color: var(--background-dark);
-        font-size: 30px;
-      }
-    }
-
-    input:checked ~ label {
-      position: absolute;
-      top: 0;
-      right: 20vw;
-      font-size: 0;
-      width: 100%;
-      text-align: end;
-
-      &:before {
-        content: "X";
-        color: var(--primary);
-        font-size: 50px;
+        font-size: 4.24vw;
         font-weight: bold;
-      }
-    }
+        padding-bottom: 5.73vw;
 
-    #filters {
-      display: none;
-
-      a {
-        box-sizing: border-box;
-        display: block;
-        width: 100%;
-        text-align: left;
-        padding: 10px 20px;
+        &:hover{
+          background-color: var(--darker-1);
+        }
       }
     }
   }

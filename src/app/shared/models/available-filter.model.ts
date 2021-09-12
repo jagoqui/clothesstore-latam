@@ -1,12 +1,12 @@
 export interface AvailableFilter {
-  id:     string;
-  name:   string;
-  type:   string;
+  id: string;
+  name: string;
+  type: string;
   values: AvailableFilterValue[];
 }
 
 interface AvailableFilterValue {
-  id:      string;
-  name:    string;
+  id: string;
+  name: string;
   results: number;
 }

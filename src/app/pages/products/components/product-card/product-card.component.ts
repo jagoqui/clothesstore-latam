@@ -22,6 +22,15 @@ export class ProductCardComponent implements OnChanges {
     return undefined;
   }
 
+  toSafeUrl = (url: string): string => {
+    let safeUrl: string = url;
+    if (!url.replace('https', '')) {
+      safeUrl = safeUrl.replace('http', '');
+      safeUrl = `https${safeUrl}`;
+    }
+    return safeUrl;
+  };
+
   addToCart(product: Product) {
     const newItemCart: ItemCart = {
       productId: product.id,

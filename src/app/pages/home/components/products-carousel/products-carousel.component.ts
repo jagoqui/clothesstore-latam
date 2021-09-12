@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { Product } from '@appShared/models/Products/product.model';
 
@@ -7,7 +7,7 @@ import { Product } from '@appShared/models/Products/product.model';
   templateUrl: './products-carousel.component.html',
   styleUrls: ['./products-carousel.component.scss']
 })
-export class ProductsCarouselComponent implements OnInit {
+export class ProductsCarouselComponent {
   @Input() products: Product[] = [];
   customOptions: OwlOptions = {
     loop: true,
@@ -42,6 +42,4 @@ export class ProductsCarouselComponent implements OnInit {
     },
     nav: true
   };
-
-  ngOnInit(): void {}
 }

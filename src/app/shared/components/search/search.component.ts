@@ -65,7 +65,8 @@ export class SearchComponent implements OnDestroy, OnChanges {
             limit: this.productSearchControlSvc.itemPorPage,
             offset: 0
           };
-          this.router.navigate(['products']).then();
+          localStorage.removeItem('ProductsSearch');
+          this.router.navigate(['products'], search).then();
           return true;
         }),
         takeUntil(this.destroy$)
