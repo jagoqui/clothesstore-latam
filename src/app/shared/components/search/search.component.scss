@@ -5,17 +5,17 @@
 
   .input-search {
     width: 100%;
-    background: var(--gray-3) 0 0 no-repeat padding-box !important;
+    background: var(--gray-3) 0 0 no-repeat padding-box;
     color: var(--accent);
     font-stretch: expanded;
     font-size: 1.302vw;
     padding: 0.729vw 0 0.833vw 1.354vw;
-    border-color: transparent transparent !important;
-    box-shadow: none !important;
+    border-color: transparent transparent;
+    box-shadow: none;
 
     &::placeholder {
       font-size: 1.302vw;
-      font-height: lighter;
+      font-weight: lighter;
       text-align: left;
     }
   }
